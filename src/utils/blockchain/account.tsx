@@ -1,8 +1,8 @@
 import { accountEndpoint } from '@tharsis/provider';
 import { REACT_APP_NODE_URL } from '../contants';
-import { getPubKey, getWalletEvmos } from '../db';
+import { getPubKey, getWalletEchelon } from '../db';
 
-export async function evmosPubKey(address: string) {
+export async function echelonPubKey(address: string) {
     const get = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
@@ -35,7 +35,7 @@ export async function evmosPubKey(address: string) {
 
 export async function getAccount() {
     // TODO: abstract this logic as get account
-    const userWallet = getWalletEvmos();
+    const userWallet = getWalletEchelon();
     if (userWallet == null) {
         return null;
     }

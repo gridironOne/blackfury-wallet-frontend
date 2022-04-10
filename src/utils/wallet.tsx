@@ -2,22 +2,24 @@ import React from 'react';
 
 import { useContext, useEffect } from 'react';
 import { getAllERC20Balances } from './backend';
+import { echelonPubKey } from './blockchain/account';
 import { getAllBalances } from './blockchain/balances';
 import {
     getProvider,
     getPubKey,
     getWalletEth,
-    getWalletEvmos,
+    getWalletEchelon,
     unsetProvider,
+    setPubKey,
     unsetPubKey,
     unsetWalletEth,
-    unsetWalletEvmos,
+    unsetWalletEchelon,
 } from './db';
 import { BalanceCosmos, GlobalState, store, BalanceERC20Item } from './state';
 
 export function disconnectWallet(state: GlobalState) {
     unsetWalletEth();
-    unsetWalletEvmos();
+    unsetWalletEchelon();
     unsetPubKey();
     unsetProvider();
     state.dispatch({ type: 'cleanup', payload: {} });
@@ -27,14 +29,14 @@ export function disconnectWallet(state: GlobalState) {
 export async function reconnectWallet(state: GlobalState) {
     const walletEth = getWalletEth();
     if (walletEth !== null) {
-        const walletEvmos = getWalletEvmos();
+        const walletEchelon = getWalletEchelon();
         const pubkey = getPubKey();
         const provider = getProvider();
         state.dispatch({
             type: 'wallet',
             payload: {
                 walletEth: walletEth,
-                walletEvmos: walletEvmos,
+                walletEchelon: walletEchelon,
             },
         });
         state.dispatch({ type: 'pubkey', payload: { pubkey } });
@@ -44,10 +46,12 @@ export async function reconnectWallet(state: GlobalState) {
 }
 
 export async function queryBalances(store: GlobalState) {
-    const wallet = getWalletEvmos();
+    const wallet = getWalletEchelon();
     let balance: BalanceCosmos[] = [];
     if (wallet !== null) {
         balance = await getAllBalances(wallet);
+        // var pubkey = await echelonPubKey(wallet);
+        // setPubKey(pubkey);
     }
     store.dispatch({ type: 'cosmosCoins', payload: balance });
 }

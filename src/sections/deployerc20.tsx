@@ -49,7 +49,7 @@ function ERC20Subtitle() {
 
 export function TransactionsIconFooter() {
     return (
-        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'teal.200'}>
+        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'purple.200'}>
             <MdOutlineGeneratingTokens fill={'currentColor'} size="40px" />
         </Icon>
     );
@@ -120,7 +120,7 @@ function DeployERC20Grid() {
 export const DeployErc20Section = () => {
     return (
         <General
-            title="Deploy ERC20 Tokens on EVMOS"
+            title="Deploy ERC20 Tokens on ECH"
             subtitle={[<ERC20Subtitle key="deploysub" />]}
             content={[<DeployERC20Grid key="deploygrid" />]}
             icon={[<TransactionsIconFooter key="deployfooter" />]}

@@ -31,7 +31,7 @@ function WalletSubtitle() {
 
 function WalletIconFooter() {
     return (
-        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'teal.200'}>
+        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'purple.200'}>
             <BsFillWalletFill fill={'currentColor'} size="40px" />
         </Icon>
     );
@@ -42,15 +42,15 @@ function WalletGrid() {
 
     const data = [
         {
-            name: 'Evmos',
-            role: '(Bech32) Evmos encoded wallet',
+            name: 'Echelon',
+            role: '(Bech32) Echelon encoded wallet',
             content: [
                 <TextSpan
-                    content={globalState.state.walletEvmos}
+                    content={globalState.state.walletEchelon}
                     key="evmotext"
                 />,
             ],
-            avatar: useColorModeValue('./evmos-black.svg', './evmos-white.svg'),
+            avatar: useColorModeValue('./echelon.gif', './echelon.gif'), // black and then white
         },
         {
             name: 'Hex',
@@ -79,10 +79,10 @@ function WalletGrid() {
         },
         {
             name: 'Balance',
-            role: '(aevmos) Current evmos coin balance',
+            role: '(aechelon) Current echelon coin balance',
             content: [
                 <TextSpan
-                    content={`${globalState.state.aphoton} Aevmos`}
+                    content={`${globalState.state.aphoton} Aechelon`}
                     key="balancetext"
                 />,
             ],

@@ -1,23 +1,23 @@
-import { evmosToEth } from '@hanchon/ethermint-address-converter';
+import { echelonToEth } from 'ethermint-address-converter';
 import { fireError, fireSuccess } from '../landing/alert';
-import { setKeplr, setPubKey, setWalletEth, setWalletEvmos } from './db';
+import { setKeplr, setPubKey, setWalletEth, setWalletEchelon } from './db';
 import { reconnectWallet } from './wallet';
 
 const config = {
-    // RPC_URL: 'https://evmos-archive-testnet.api.bdnodes.net:26657',
-    // REST_URL: 'https://evmos-archive-testnet.api.bdnodes.net:1317',
-    RPC_URL: 'http://26657.evmos.me',
-    REST_URL: 'http://1317.evmos.me',
+    // RPC_URL: 'https://echelon-archive-testnet.api.bdnodes.net:26657',
+    // REST_URL: 'https://echelon-archive-testnet.api.bdnodes.net:1317',
+    RPC_URL: '89.233.104.101:26656',
+    REST_URL: 'https://api.ech.network',
 
-    EXPLORER_URL: 'https://explorer.evmos.org/',
-    NETWORK_NAME: 'Evmos',
-    NETWORK_TYPE: 'testnet',
-    CHAIN_ID: 'evmos_9000-1',
-    CHAIN_NAME: 'Evmos Testnet OM',
-    COIN_DENOM: 'EVMOS',
-    COIN_MINIMAL_DENOM: 'aevmos',
+    EXPLORER_URL: 'https://explorer.ech.network/',
+    NETWORK_NAME: 'Echelon',
+    NETWORK_TYPE: 'mainnet',
+    CHAIN_ID: 'echelon_3000-3',
+    CHAIN_NAME: 'Echelon Mainnet',
+    COIN_DENOM: 'ECH',
+    COIN_MINIMAL_DENOM: 'aechelon',
     COIN_DECIMALS: 18,
-    PREFIX: 'evmos',
+    PREFIX: 'echelon',
     COIN_TYPE: 60,
     GAS_PRICE_STEP_LOW: 0.05,
     GAS_PRICE_STEP_AVERAGE: 0.25,
@@ -106,16 +106,16 @@ export async function connectKeplr(state: any) {
     // }
 
     if (window.keplr) {
-        await window.keplr.enable('evmos_9001-1');
-        const offlineSigner = window.getOfflineSigner('evmos_9001-1');
+        await window.keplr.enable('echelon_3000-3');
+        const offlineSigner = window.getOfflineSigner('echelon_3000-3');
         fireSuccess(
             'Logged in with Keplr',
-            'You can now start using evmos.me!'
+            'You can now start using wallet.ech.network!'
         );
         let wallets = await offlineSigner.getAccounts();
         setKeplr();
-        setWalletEvmos(wallets[0].address);
-        setWalletEth(evmosToEth(wallets[0].address));
+        setWalletEchelon(wallets[0].address);
+        setWalletEth(echelonToEth(wallets[0].address));
         let pubkey = btoa(String.fromCharCode.apply(null, wallets[0].pubkey));
         setPubKey(pubkey);
         await reconnectWallet(state);

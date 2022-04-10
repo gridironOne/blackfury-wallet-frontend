@@ -58,7 +58,7 @@ function ValidatorGrid() {
                 <GeneralCards
                     key={'delegate'}
                     name={'Delegate'}
-                    role="Delegate your aphotons to a validator"
+                    role="Delegate your aechelons to a validator"
                     content={[<DelegateAphotons key="delegatecontent" />]}
                     iconComponents={[
                         <MessagesIcon
@@ -71,7 +71,7 @@ function ValidatorGrid() {
                 {/* <GeneralCards
                     key={'undelegate'}
                     name={'Undelegate'}
-                    role="Undelegate your aphotons."
+                    role="Undelegate your aechelons."
                     content={[<UndelegateAphotons key="undelegatecontent" />]}
                     iconComponents={[
                         <MessagesIcon
@@ -84,7 +84,7 @@ function ValidatorGrid() {
                             }
                         />,
                     ]}
-                /> */}
+                />  */}
             </SimpleGrid>
         </VStack>
     );

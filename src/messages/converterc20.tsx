@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -21,7 +21,7 @@ import {
     callProposalRegisterErc20,
     callConvertErc20,
 } from '../utils/backend';
-import { getWalletEth, getWalletEvmos } from '../utils/db';
+import { getWalletEth, getWalletEchelon } from '../utils/db';
 
 export async function executeConvertERC20(
     contract: string,
@@ -46,7 +46,7 @@ export async function executeConvertERC20(
         fireError('Convert ERC20', 'Invalid amount!');
         return false;
     }
-    const myWallet = getWalletEvmos();
+    const myWallet = getWalletEchelon();
     if (myWallet === null) {
         fireError('Convert ERC20', 'Invalid wallet!');
         return false;
@@ -151,7 +151,7 @@ const ConvertERC20 = () => {
                         <FormControl id="buttonRegisterERC20">
                             <Button
                                 w="full"
-                                bg="teal.300"
+                                bg="purple.300"
                                 color="white"
                                 onClick={() => {
                                     executeConvertERC20(

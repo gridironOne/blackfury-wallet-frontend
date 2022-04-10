@@ -1,10 +1,10 @@
-# Evmos.me Frontend
+# Echelon.me Frontend
 
-A `#HackAtom` 2021 project: a wallet integration for evmos.
+A `#HackAtom` 2021 project: a wallet integration for echelon.
 
 ## Requirements
 
--   Evmos.me backend
+-   Echelon.me backend
 -   NodeJs
 
 ## Local development
@@ -15,7 +15,7 @@ yarn dev
 
 ## Variables
 
-`REACT_APP_BACKEND_URL` it should point to the url where [evmos.me-backend](https://github.com/hanchon-live/evmos.me-backend) is hosted.
+`REACT_APP_BACKEND_URL` it should point to the url where [wallet.ech.network-backend](https://github.com/hanchon-live/wallet.ech.network-backend) is hosted.
 
 ## Deployment
 

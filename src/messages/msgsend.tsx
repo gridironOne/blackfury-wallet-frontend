@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -28,7 +28,7 @@ import {
     createTxRawEIP712,
     signatureToWeb3Extension,
 } from '@tharsis/transactions';
-import { evmosToEth } from '@tharsis/address-converter';
+import { echelonToEth } from 'ethermint-address-converter';
 import { getAccount } from '../utils/blockchain/account';
 import { BaseFee, chain } from '../utils/blockchain/chain';
 import {
@@ -47,7 +47,7 @@ export async function executeMsgSend(
     feeGas: string
 ) {
     if (denom == '') {
-        denom = 'aevmos';
+        denom = 'aechelon';
     }
 
     if (feeAmount == '') {
@@ -59,7 +59,7 @@ export async function executeMsgSend(
     }
 
     if (feeDenom == '') {
-        feeDenom = 'aevmos';
+        feeDenom = 'aechelon';
     }
 
     if (feeGas == '') {
@@ -70,9 +70,9 @@ export async function executeMsgSend(
         return false;
     }
 
-    if (dest.split('evmos').length != 2) {
+    if (dest.split('echelon').length != 2) {
         if (dest.split('0x').length == 2) {
-            dest = ethToEvmos(dest);
+            dest = ethToEchelon(dest);
         } else {
             fireError('Msg Send', 'Invalid destination!');
             return false;
@@ -140,7 +140,7 @@ export async function executeMsgSend(
 
 //     const fee = {
 //         amount: '20',
-//         denom: 'aevmos',
+//         denom: 'aechelon',
 //         gas: '200000',
 //     };
 
@@ -155,7 +155,7 @@ export async function executeMsgSend(
 //             sourceChannel: 'channel-0',
 //             // Token
 //             amount: '10000',
-//             denom: 'aevmos',
+//             denom: 'aechelon',
 //             // Addresses
 //             receiver: 'osmo1pmk2r32ssqwps42y3c9d4clqlca403yd05x9ye',
 //             // Timeout
@@ -214,7 +214,7 @@ const MsgSend = () => {
                         <FormControl id="destSendControl">
                             <FormLabel id="destSend">Destination</FormLabel>
                             <Input
-                                placeholder="0x.. or evmos1..."
+                                placeholder="0x.. or echelon1..."
                                 type="text"
                                 onChange={(e) => setDest(e.target.value)}
                             />
@@ -234,7 +234,7 @@ const MsgSend = () => {
                         <FormControl id="denomSendControl">
                             <FormLabel id="denomSend">Coin(Optional)</FormLabel>
                             <Input
-                                placeholder="aevmos"
+                                placeholder="aechelon"
                                 type="text"
                                 onChange={(e) => setDenom(e.target.value)}
                             ></Input>
@@ -271,7 +271,7 @@ const MsgSend = () => {
                                 Fee Denom(optional)
                             </FormLabel>
                             <Input
-                                placeholder="aevmos"
+                                placeholder="aechelon"
                                 type="text"
                                 onChange={(e) => setFeeDenom(e.target.value)}
                             />
@@ -294,7 +294,7 @@ const MsgSend = () => {
                             <FormControl id="buttonSendControl">
                                 <Button
                                     w="full"
-                                    bg="teal.300"
+                                    bg="purple.300"
                                     color="white"
                                     onClick={() => {
                                         executeMsgSend(
@@ -333,7 +333,7 @@ const MsgSend = () => {
                         <FormControl id="destSendControl">
                             <FormLabel id="destSend">Destination</FormLabel>
                             <Input
-                                placeholder="0x.. or evmos1..."
+                                placeholder="0x.. or echelon1..."
                                 type="text"
                                 onChange={(e) => setDest(e.target.value)}
                             />
@@ -374,7 +374,7 @@ const MsgSend = () => {
                             <FormControl id="buttonSendControl">
                                 <Button
                                     w="full"
-                                    bg="teal.300"
+                                    bg="purple.300"
                                     color="white"
                                     onClick={() => {
                                         executeIBC();

@@ -11,7 +11,7 @@ import {
     HStack,
 } from '@chakra-ui/layout';
 import { Divider, Select } from '@chakra-ui/react';
-import { ethToEvmos } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -29,7 +29,7 @@ import {
     createTxRawEIP712,
     signatureToWeb3Extension,
 } from '@tharsis/transactions';
-import { evmosToEth } from '@tharsis/address-converter';
+import { echelonToEth } from 'ethermint-address-converter';
 import { getAccount } from '../utils/blockchain/account';
 import { BaseFee, chain } from '../utils/blockchain/chain';
 import {
@@ -77,7 +77,7 @@ export async function executeMsgVote(
     }
 
     if (feeDenom == '') {
-        feeDenom = 'aevmos';
+        feeDenom = 'aechelon';
     }
 
     if (feeGas == '') {
@@ -189,7 +189,7 @@ const Voting = () => {
                                 Fee Denom(optional)
                             </FormLabel>
                             <Input
-                                placeholder="aevmos"
+                                placeholder="aechelon"
                                 type="text"
                                 onChange={(e) => setFeeDenom(e.target.value)}
                             />
@@ -212,7 +212,7 @@ const Voting = () => {
                             <FormControl id="buttonSendControl">
                                 <Button
                                     w="full"
-                                    bg="teal.300"
+                                    bg="purple.300"
                                     color="white"
                                     onClick={() => {
                                         executeMsgVote(

@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos, evmosToEth } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon, echelonToEth } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -33,7 +33,7 @@ const ConvertAddress = () => {
                     <FormControl id="destSendControl">
                         <FormLabel id="destSend">Address</FormLabel>
                         <Input
-                            placeholder="0x.. or evmos1..."
+                            placeholder="0x.. or echelon1..."
                             type="text"
                             onChange={(e) => {
                                 if (
@@ -41,13 +41,13 @@ const ConvertAddress = () => {
                                         .toLocaleLowerCase()
                                         .split('0x').length == 2
                                 ) {
-                                    setResult(ethToEvmos(e.target.value));
+                                    setResult(ethToEchelon(e.target.value));
                                 } else if (
                                     e.target.value
                                         .toLocaleLowerCase()
-                                        .split('evmos1').length == 2
+                                        .split('echelon1').length == 2
                                 ) {
-                                    setResult(evmosToEth(e.target.value));
+                                    setResult(echelonToEth(e.target.value));
                                 } else {
                                     setResult('');
                                 }

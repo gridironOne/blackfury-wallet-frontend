@@ -2,14 +2,14 @@ import { Box, Center, Heading, SimpleGrid, Text } from '@chakra-ui/layout';
 import { BiWallet } from 'react-icons/bi';
 import { BsFillKeyFill } from 'react-icons/bs';
 
-const AddressDetails = ({ wallet, walletEvmos, publicKey }: any) => {
+const AddressDetails = ({ wallet, walletEchelon, publicKey }: any) => {
     return (
         <SimpleGrid columns={[1, 1, 1, 3]} mt={[2, 2, 4, 4]}>
             <Box
-                bg="teal.800"
+                bg="purple.800"
                 p={3}
                 borderRadius="15px"
-                borderColor="teal.300"
+                borderColor="purple.300"
                 border="2px"
                 m={2}
             >
@@ -35,10 +35,10 @@ const AddressDetails = ({ wallet, walletEvmos, publicKey }: any) => {
             </Box>
 
             <Box
-                bg="teal.800"
+                bg="purple.800"
                 p={3}
                 borderRadius="15px"
-                borderColor="teal.300"
+                borderColor="purple.300"
                 border="2px"
                 m={2}
             >
@@ -47,7 +47,7 @@ const AddressDetails = ({ wallet, walletEvmos, publicKey }: any) => {
                     style={{ fontWeight: 500 }}
                     textAlign="center"
                 >
-                    Bech32(Evmos)
+                    Bech32(Echelon)
                 </Heading>
                 <Center>
                     <BiWallet size="30px" />
@@ -58,15 +58,15 @@ const AddressDetails = ({ wallet, walletEvmos, publicKey }: any) => {
                             fontWeight: 'bold',
                         }}
                     >
-                        {walletEvmos}
+                        {walletEchelon}
                     </Text>
                 </Center>
             </Box>
             <Box
-                bg="teal.800"
+                bg="purple.800"
                 p={3}
                 borderRadius="15px"
-                borderColor="teal.300"
+                borderColor="purple.300"
                 border="2px"
                 m={2}
             >

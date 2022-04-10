@@ -20,7 +20,7 @@ function ERC20Subtitle() {
                     <Strong content={'ERC20'} />
                     {' balances.'}
                     <br />
-                    {'(All your ERC20 tokens registered on Evmos.me)'}
+                    {'(All your ERC20 tokens registered on Echelon.me)'}
                     <br />
                     {'Read the '}
                     <Link href="/faq">FAQ</Link>
@@ -33,7 +33,7 @@ function ERC20Subtitle() {
 
 function ERC20IconFooter() {
     return (
-        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'teal.200'}>
+        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'purple.200'}>
             <FaEthereum fill={'currentColor'} size="35px" />
         </Icon>
     );

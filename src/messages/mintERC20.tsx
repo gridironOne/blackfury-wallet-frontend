@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos, evmosToEth } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon, echelonToEth } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -41,8 +41,8 @@ export async function executeMintERC20(
         return false;
     }
 
-    if (destination.split('evmos1').length == 2) {
-        destination = evmosToEth(destination);
+    if (destination.split('echelon1').length == 2) {
+        destination = echelonToEth(destination);
     } else if (destination.split('0x').length != 2) {
         fireError('Mint ERC20', 'Invalid Contract!');
         return false;
@@ -107,7 +107,7 @@ const MintERC20 = () => {
                     <FormControl id="destSendControl">
                         <FormLabel id="destSend">Destination address</FormLabel>
                         <Input
-                            placeholder="0x../evmos1..."
+                            placeholder="0x../echelon1..."
                             type="text"
                             onChange={(e) => setDestination(e.target.value)}
                         />
@@ -153,7 +153,7 @@ const MintERC20 = () => {
                         <FormControl id="buttonRegisterERC20">
                             <Button
                                 w="full"
-                                bg="teal.300"
+                                bg="purple.300"
                                 color="white"
                                 onClick={() => {
                                     executeMintERC20(

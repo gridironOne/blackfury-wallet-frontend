@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -29,20 +29,20 @@ async function execute(
     feeDenom: string,
     feeGas: string
 ) {
-    if (dest.split('evmosvaloper1').length != 2) {
-        fireError('Delegate Aevmos', 'Invalid destination!');
+    if (dest.split('echelonvaloper1').length != 2) {
+        fireError('Delegate Aechelon', 'Invalid destination!');
         return false;
     }
 
     let parsedAmount = Number(amount);
     if (parsedAmount === NaN) {
-        fireError('Delegate Aevmos', 'Invalid amount!');
+        fireError('Delegate Aechelon', 'Invalid amount!');
         return false;
     }
 
     if (parsedAmount < 100000000000000) {
         fireError(
-            'Delegate Aevmos',
+            'Delegate Aechelon',
             'Invalid amount, minimum value is 100000000000000!'
         );
         return false;
@@ -57,7 +57,7 @@ async function execute(
     }
 
     if (feeDenom == '') {
-        feeDenom = 'aevmos';
+        feeDenom = 'aechelon';
     }
 
     if (feeGas == '') {
@@ -78,7 +78,7 @@ async function execute(
     let res = await createTxMsgDelegate(chain, sender, fee, memo, {
         validatorAddress: dest,
         amount: amount,
-        denom: 'aevmos',
+        denom: 'aechelon',
     });
 
     return signCosmosAndBroadcastWithMetamask(chain, sender, res);
@@ -101,14 +101,14 @@ const DelegateAphotons = () => {
             border="1px"
             borderRadius={25}
         >
-            <Heading size="md">Delegate Aevmos</Heading>
+            <Heading size="md">Delegate Aechelon</Heading>
             <Divider />
             <SimpleGrid columns={1} columnGap={3} rowGap={6} w="full">
                 <GridItem colSpan={[1, 2]}>
                     <FormControl id="destDelegateControl">
                         <FormLabel id="destDelegate">Destination</FormLabel>
                         <Input
-                            placeholder="evmosvaloper1t703ccll8shpkhwnvmtu5nzrvcaw52u8an2708"
+                            placeholder="echelonvaloper1t703ccll8shpkhwnvmtu5nzrvcaw52u8an2708"
                             type="text"
                             onChange={(e) => setDest(e.target.value)}
                         />
@@ -117,7 +117,7 @@ const DelegateAphotons = () => {
                 <GridItem colSpan={[1, 2]}>
                     <FormControl id="amountDelegateControl">
                         <FormLabel id="amountDelegate">
-                            Amount (Aevmos)
+                            Amount (Aechelon)
                         </FormLabel>
                         <Input
                             placeholder="1000000000000"
@@ -156,7 +156,7 @@ const DelegateAphotons = () => {
                     <FormControl id="memoSendControl">
                         <FormLabel id="memoSend">Fee Denom(optional)</FormLabel>
                         <Input
-                            placeholder="aevmos"
+                            placeholder="aechelon"
                             type="text"
                             onChange={(e) => setFeeDenom(e.target.value)}
                         />
@@ -177,7 +177,7 @@ const DelegateAphotons = () => {
                     <Center h="full">
                         <FormControl id="buttonDelegateControl">
                             <Button
-                                bg="teal.300"
+                                bg="purple.300"
                                 color="white"
                                 w="full"
                                 onClick={() => {

@@ -20,10 +20,10 @@ jobs:
                   yarn run export
                   cd out
                   touch .nojekyll
-                  echo "evmos.me" > CNAME
+                  echo "wallet.ech.network" > CNAME
                   git init
                   git config --global user.email "guillermo.paoletti@gmail.com"
                   git config --global user.name "Hanchon"
                   git add -A
                   git commit -m "Build"
-                  git push -f https://hanchon:${{ secrets.GITHUB_TOKEN }}@github.com/hanchon-live/evmos.me-frontend.git master:gh-pages
+                  git push -f https://hanchon:${{ secrets.GITHUB_TOKEN }}@github.com/hanchon-live/wallet.ech.network-frontend.git master:gh-pages

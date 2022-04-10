@@ -11,7 +11,7 @@ export default function MessagesIcon({ icon }: props) {
             width={'60px'}
             alignSelf={'center'}
             m={{ base: '0 0 35px 0', md: '0 0 0 20px' }}
-            color={'teal.300'}
+            color={'purple.300'}
         >
             {icon}
         </Icon>

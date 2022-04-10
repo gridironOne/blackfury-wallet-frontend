@@ -12,7 +12,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <ChakraProvider theme={theme}>
             <StateProvider>
                 <Head>
-                    <title>Evmos.me</title>
+                    <title>Echelon Wallet</title>
                     <script
                         async
                         src="https://www.googletagmanager.com/gtag/js?id=G-R0XLY4N34W"

@@ -1,4 +1,4 @@
-import { ethToEvmos, evmosToEth } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon, echelonToEth } from 'ethermint-address-converter';
 import { GiConsoleController } from 'react-icons/gi';
 import { fireError, fireSuccess } from '../landing/alert';
 import { REACT_APP_BACKEND_URL, REACT_APP_NODE_URL } from './contants';
@@ -7,7 +7,7 @@ import { ethers } from 'ethers';
 import {
     getPubKey,
     getWalletEth,
-    getWalletEvmos,
+    getWalletEchelon,
     isKeplr,
     isMetamask,
 } from './db';
@@ -21,7 +21,7 @@ import { signCosmosTransaction } from './metamask';
 //     generateTypes,
 //     createMsgSend,
 //     msgSendTypes,
-// } from '@tharsis/evmosjs/packages/eip712';
+// } from '@tharsis/echelonjs/packages/eip712';
 
 // import {
 //     createMsgSend as protoMsgSend,
@@ -32,7 +32,7 @@ import { signCosmosTransaction } from './metamask';
 //     createSigDoc,
 //     createTransaction,
 //     LEGACY_AMINO,
-// } from '@tharsis/evmosjs/packages/proto';
+// } from '@tharsis/echelonjs/packages/proto';
 import { Keccak } from 'sha3';
 
 export async function getAllBalances(address: string) {
@@ -40,7 +40,7 @@ export async function getAllBalances(address: string) {
         return { balances: [] };
     }
     if (address.split('0x').length == 2) {
-        address = ethToEvmos(address);
+        address = ethToEchelon(address);
     }
     const pubresp = await fetch(`${REACT_APP_BACKEND_URL}/get_all_balances/`, {
         method: 'POST',
@@ -57,8 +57,8 @@ export async function getAllERC20Balances(address: string) {
     if (address === null) {
         return { balances: [] };
     }
-    if (address.split('evmos1').length == 2) {
-        address = evmosToEth(address);
+    if (address.split('echelon1').length == 2) {
+        address = echelonToEth(address);
     }
     const pubresp = await fetch(
         `${REACT_APP_BACKEND_URL}/get_all_erc20_balances/`,
@@ -83,7 +83,7 @@ export async function createERC20Contract(
 ) {
     const body = JSON.stringify({
         wallet: {
-            address: getWalletEvmos(),
+            address: getWalletEchelon(),
             algo: 'ethsecp256k1',
             pubkey: getPubKey(),
         },
@@ -116,11 +116,11 @@ export async function createERC20Transfer(
     gas: string,
     gasPrice: string
 ) {
-    if (sender.split('evmos1').length == 2) {
-        sender = evmosToEth(sender);
+    if (sender.split('echelon1').length == 2) {
+        sender = echelonToEth(sender);
     }
-    if (destination.split('evmos1').length == 2) {
-        destination = evmosToEth(destination);
+    if (destination.split('echelon1').length == 2) {
+        destination = echelonToEth(destination);
     }
     const pubresp = await fetch(
         `${REACT_APP_BACKEND_URL}/create_erc20_transfer/`,
@@ -145,9 +145,9 @@ export async function createERC20Transfer(
 
 export async function generatePublicKey(address: string) {
     if (address.split('0x').length == 2) {
-        address = ethToEvmos(address);
+        address = ethToEchelon(address);
     }
-    const pubresp = await evmosPubKey(address);
+    const pubresp = await echelonPubKey(address);
     return pubresp;
 }
 
@@ -194,7 +194,7 @@ export async function callMintErc20(
         },
         body: JSON.stringify({
             wallet: {
-                address: getWalletEvmos(),
+                address: getWalletEchelon(),
                 algo: algo,
                 pubkey: getPubKey(),
             },
@@ -229,7 +229,7 @@ export async function callConvertCoin(
         },
         body: JSON.stringify({
             wallet: {
-                address: getWalletEvmos(),
+                address: getWalletEchelon(),
                 algo: algo,
                 pubkey: getPubKey(),
             },
@@ -272,7 +272,7 @@ export async function callUpdateTokenPair(
         },
         body: JSON.stringify({
             wallet: {
-                address: getWalletEvmos(),
+                address: getWalletEchelon(),
                 algo: algo,
                 pubkey: getPubKey(),
             },
@@ -314,7 +314,7 @@ export async function callToggleToken(
         },
         body: JSON.stringify({
             wallet: {
-                address: getWalletEvmos(),
+                address: getWalletEchelon(),
                 algo: algo,
                 pubkey: getPubKey(),
             },
@@ -356,7 +356,7 @@ export async function callConvertErc20(
         },
         body: JSON.stringify({
             wallet: {
-                address: getWalletEvmos(),
+                address: getWalletEchelon(),
                 algo: algo,
                 pubkey: getPubKey(),
             },
@@ -411,7 +411,7 @@ export async function callProposalRegisterCoin(
             },
             body: JSON.stringify({
                 wallet: {
-                    address: getWalletEvmos(),
+                    address: getWalletEchelon(),
                     algo: algo,
                     pubkey: getPubKey(),
                 },
@@ -464,7 +464,7 @@ export async function callProposalRegisterErc20(
             },
             body: JSON.stringify({
                 wallet: {
-                    address: getWalletEvmos(),
+                    address: getWalletEchelon(),
                     algo: algo,
                     pubkey: getPubKey(),
                 },
@@ -525,7 +525,7 @@ import {
 } from '@tharsis/eip712';
 
 import { accountEndpoint } from '@tharsis/provider';
-import { evmosPubKey, getAccount } from './blockchain/account';
+import { echelonPubKey, getAccount } from './blockchain/account';
 import { getAddress } from 'ethers/lib/utils';
 export async function callSendAphoton(
     dest: string,
@@ -534,7 +534,7 @@ export async function callSendAphoton(
     memo: string
 ) {
     return;
-    // const sender = getWalletEvmos();
+    // const sender = getWalletEchelon();
     // if (sender == null) {
     //     return;
     // }
@@ -565,7 +565,7 @@ export async function callSendAphoton(
     // // Get account data
     // const accountId = parseInt(values.account.base_account.account_number);
     // const sequence = parseInt(values.account.base_account.sequence);
-    // const chainIdCosmos = 'evmos_9000-1';
+    // const chainIdCosmos = 'echelon_9000-1';
     // const chainId = 9000;
 
     // // EIP712
@@ -667,7 +667,7 @@ export async function callSendAphoton(
     // //     },
     // //     body: JSON.stringify({
     // //         wallet: {
-    // //             address: getWalletEvmos(),
+    // //             address: getWalletEchelon(),
     // //             algo: algo,
     // //             pubkey: getPubKey(),
     // //         },
@@ -807,7 +807,7 @@ export async function callSendAphoton(
     // //     createAuthInfo,
     // //     createSigDoc,
     // //     createTransaction,
-    // // } from '@tharsis/evmosjs/packages/proto'
+    // // } from '@tharsis/echelonjs/packages/proto'
 
     // // let msg2 = protoMsgSend(
     // //     'ethm1tfegf50n5xl0hd5cxfzjca3ylsfpg0fned5gqm',
@@ -935,7 +935,7 @@ export async function undelegateAphoton(dest: string, amount: string) {
         },
         body: JSON.stringify({
             wallet: {
-                address: getWalletEvmos(),
+                address: getWalletEchelon(),
                 algo: algo,
                 pubkey: getPubKey(),
             },
@@ -968,7 +968,7 @@ export async function delegateAphoton(dest: string, amount: string) {
         },
         body: JSON.stringify({
             wallet: {
-                address: getWalletEvmos(),
+                address: getWalletEchelon(),
                 algo: algo,
                 pubkey: getPubKey(),
             },
@@ -1024,7 +1024,7 @@ export function signTransaction(data: any) {
     }
 
     if (isKeplr()) {
-        let wallet = getWalletEvmos();
+        let wallet = getWalletEchelon();
         if (wallet === null) {
             return null;
         }

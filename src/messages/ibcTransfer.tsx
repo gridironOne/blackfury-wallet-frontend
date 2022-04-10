@@ -11,7 +11,7 @@ import {
     HStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -29,7 +29,7 @@ import {
     createTxRawEIP712,
     signatureToWeb3Extension,
 } from '@tharsis/transactions';
-import { evmosToEth } from '@tharsis/address-converter';
+import { echelonToEth } from 'ethermint-address-converter';
 import { getAccount } from '../utils/blockchain/account';
 import { BaseFee, chain } from '../utils/blockchain/chain';
 import {
@@ -100,7 +100,7 @@ export async function executeIBCTransfer(
     }
 
     if (denom == '') {
-        denom = 'aevmos';
+        denom = 'aechelon';
     }
 
     if (feeAmount == '') {
@@ -120,7 +120,7 @@ export async function executeIBCTransfer(
     }
 
     if (feeDenom == '') {
-        feeDenom = 'aevmos';
+        feeDenom = 'aechelon';
     }
 
     if (feeGas == '') {
@@ -206,7 +206,7 @@ const IBCTransfer = () => {
                     <Button
                         mt={2}
                         w="full"
-                        bg="teal.300"
+                        bg="purple.300"
                         color="white"
                         onClick={() => {
                             autocompleteOsmosis(
@@ -249,7 +249,7 @@ const IBCTransfer = () => {
                         <FormControl id="denomSendControl">
                             <FormLabel id="denomSend">Coin(Optional)</FormLabel>
                             <Input
-                                placeholder="aevmos"
+                                placeholder="aechelon"
                                 type="text"
                                 onChange={(e) => setDenom(e.target.value)}
                             ></Input>
@@ -363,7 +363,7 @@ const IBCTransfer = () => {
                                 Fee Denom(optional)
                             </FormLabel>
                             <Input
-                                placeholder="aevmos"
+                                placeholder="aechelon"
                                 type="text"
                                 onChange={(e) => setFeeDenom(e.target.value)}
                             />
@@ -386,7 +386,7 @@ const IBCTransfer = () => {
                             <FormControl id="buttonSendControl">
                                 <Button
                                     w="full"
-                                    bg="teal.300"
+                                    bg="purple.300"
                                     color="white"
                                     onClick={() => {
                                         executeIBCTransfer(

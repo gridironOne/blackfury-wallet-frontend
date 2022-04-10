@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -154,7 +154,7 @@ const RegisterERC20 = () => {
                         <FormControl id="buttonRegisterERC20">
                             <Button
                                 w="full"
-                                bg="teal.300"
+                                bg="purple.300"
                                 color="white"
                                 onClick={() => {
                                     executeRegisterERC20(

@@ -18,7 +18,7 @@ export const theme = {
             variants: {
                 primary: {
                     _hover: {
-                        bg: 'teal.600',
+                        bg: 'purple.600',
                     },
                 },
             },

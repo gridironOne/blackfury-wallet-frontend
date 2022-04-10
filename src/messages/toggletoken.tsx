@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -22,7 +22,7 @@ import {
     callConvertErc20,
     callToggleToken,
 } from '../utils/backend';
-import { getWalletEth, getWalletEvmos } from '../utils/db';
+import { getWalletEth, getWalletEchelon } from '../utils/db';
 
 export async function executeToggleToken(
     token: string,
@@ -46,7 +46,7 @@ export async function executeToggleToken(
         gasLimit = '1000000';
     }
 
-    const myWallet = getWalletEvmos();
+    const myWallet = getWalletEchelon();
     if (myWallet === null) {
         fireError('Toggle Token', 'Invalid wallet!');
         return false;
@@ -168,7 +168,7 @@ const ToggleToken = () => {
                         <FormControl id="buttonRegisterERC20">
                             <Button
                                 w="full"
-                                bg="teal.300"
+                                bg="purple.300"
                                 color="white"
                                 onClick={() => {
                                     executeToggleToken(

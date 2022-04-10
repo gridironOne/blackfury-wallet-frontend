@@ -3,7 +3,7 @@
     width: 100%;
     height: 100vh;
     color: white;
-    background: linear-gradient(-45deg, #4fd1c5, #319795, #285e61, #1d4044);
+    background: linear-gradient(-45deg, #974fd1, #663197, #562861, #3c1d44);
     background-size: 400%, 400%;
     animation: change 15s ease-in infinite;
 }
@@ -22,7 +22,7 @@
 .landing-background {
     width: 100%;
     color: white;
-    background: linear-gradient(-45deg, #1d4044, #285e61, #1d4044);
+    background: linear-gradient(-45deg, #391d44, #4f2861, #401d44);
     background-size: 400%, 400%;
     animation: change 15s ease-in infinite;
 }
@@ -40,6 +40,7 @@
 body {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    font-family:'Gotham book',sans-serif !important;
 }
 
 body::-webkit-scrollbar {

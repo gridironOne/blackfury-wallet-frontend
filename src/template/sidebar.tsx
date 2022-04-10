@@ -150,8 +150,8 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                         <Image
                             bg="transparent"
                             src={useColorModeValue(
-                                './renzo-rhino.png',
-                                './renzo-rhino-white.png'
+                                './echelon.gif',
+                                './echelon.gif'
                             )}
                         />
                     </Box>
@@ -164,7 +164,7 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                         fontFamily="var(--chakra-fonts-heading)"
                         fontWeight="bold"
                     >
-                        Evmos.me
+                        Echelon
                     </Text>
                 </HStack>
                 <CloseButton
@@ -453,9 +453,9 @@ const NavItem = ({
                         ? 'white'
                         : useColorModeValue('black', 'white')
                 }
-                bg={'/' + currentselected == link ? 'teal.500' : 'transparent'}
+                bg={'/' + currentselected == link ? 'purple.500' : 'transparent'}
                 _hover={{
-                    bg: 'teal.300',
+                    bg: 'purple.300',
                     color: useColorModeValue('white', 'black'),
                 }}
                 {...rest}
@@ -512,7 +512,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 fontFamily="var(--chakra-fonts-heading)"
                 fontWeight="bold"
             >
-                Evmos.me
+                Echelon
             </Text>
 
             <HStack spacing={{ base: '0', md: '6' }} id="hstacksidebar">
@@ -549,8 +549,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                                                   'keplr'
                                                 ? './keplr.svg'
                                                 : useColorModeValue(
-                                                      './renzo-rhino.png',
-                                                      './renzo-rhino-white.png'
+                                                      './echelon.gif',
+                                                      './echelon.gif'
                                                   )
                                         }
                                     />

@@ -22,7 +22,7 @@ const ERC20Item = () => {
                     overflow="hidden"
                     boxShadow="lg"
                     m={3}
-                    bgGradient="linear(to-br, teal.500, teal.600)"
+                    bgGradient="linear(to-br, purple.500, purple.600)"
                 >
                     <Grid
                         templateRows="repeat(4, 5em)"
@@ -31,12 +31,12 @@ const ERC20Item = () => {
                         <GridItem rowSpan={1} colSpan={1}>
                             <Center h="full" pt={10}>
                                 <Circle
-                                    bg="teal.900"
+                                    bg="purple.900"
                                     h="75px"
                                     w="75px"
                                     boxShadow="base"
                                 >
-                                    <Circle bg="teal.700" h="60px" w="60px">
+                                    <Circle bg="purple.700" h="60px" w="60px">
                                         <FaEthereum size="50px" />
                                     </Circle>
                                 </Circle>
@@ -110,11 +110,11 @@ const ERC20Item = () => {
                         <GridItem rowSpan={1} colSpan={2} justifyItems="center">
                             <Center alignItems="center" h="full">
                                 <Button
-                                    colorScheme="teal"
+                                    colorScheme="purple"
                                     variant="solid"
                                     _hover={{
                                         border: '1px',
-                                        backgroundColor: 'teal.400',
+                                        backgroundColor: 'purple.400',
                                     }}
                                 >
                                     Transfer &bull; <ArrowRightIcon />

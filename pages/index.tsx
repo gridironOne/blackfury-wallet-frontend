@@ -35,14 +35,14 @@ export default function CallToActionWithAnnotation() {
                             fontSize={{ base: '4xl', sm: '4xl', md: '6xl' }}
                             lineHeight={'110%'}
                         >
-                            Evmos.me <br />
+                            wallet.ech.network <br />
                             <Text
                                 as={'span'}
                                 color={'green.400'}
                                 fontSize={{ base: 'lg', sm: '4xl', md: '6xl' }}
                                 fontWeight={600}
                             >
-                                Your all in one EVMOS wallet
+                                Your all in one ECH wallet
                             </Text>
                         </Heading>
 
@@ -93,7 +93,7 @@ export default function CallToActionWithAnnotation() {
                                     top={['88px', '-15px']}
                                     transform={['', 'rotate(10deg)']}
                                 >
-                                    Start using evmos!
+                                    Start using echelon!
                                 </Text>
                             </Box>
                         </Stack>

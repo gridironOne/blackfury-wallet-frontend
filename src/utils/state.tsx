@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import internal from 'stream';
-import { ethToEvmos } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon } from 'ethermint-address-converter';
 
 interface Action {
     type: string;
@@ -28,7 +28,7 @@ export interface BalanceERC20Item {
 }
 export interface GlobalState {
     state: {
-        walletEvmos: string;
+        walletEchelon: string;
         walletEth: string;
         pubkey: string;
         provider: string;
@@ -40,7 +40,7 @@ export interface GlobalState {
 }
 
 const initialState: any = {
-    walletEvmos: 'evmos1...',
+    walletEchelon: 'echelon1...',
     walletEth: '0x...',
     pubkey: 'At/+...',
     provider: '',
@@ -58,7 +58,7 @@ const StateProvider = ({ children }: any) => {
                 return {
                     ...state,
                     walletEth: action.payload.walletEth,
-                    walletEvmos: ethToEvmos(action.payload.walletEth),
+                    walletEchelon: ethToEchelon(action.payload.walletEth),
                 };
             case 'pubkey':
                 return { ...state, pubkey: action.payload.pubkey };
@@ -71,7 +71,7 @@ const StateProvider = ({ children }: any) => {
                 return newState;
             case 'cosmosCoins':
                 let temp = action.payload.balances.filter((e: Balance) => {
-                    if (e.denom == 'aevmos') {
+                    if (e.denom == 'aechelon') {
                         return true;
                     }
                 });

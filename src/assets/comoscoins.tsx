@@ -30,7 +30,7 @@ const CosmosCoins = () => {
                     Cosmos Coins
                 </Heading>
                 <Text py={2} textAlign="center">
-                    All the registered Cosmos Coins on Evmos.me
+                    All the registered Cosmos Coins on Echelon.me
                 </Text>
             </Box>
             <SimpleGrid

@@ -35,7 +35,7 @@ function WalletUtilsSubtitle() {
 
 function WalletIconFooter() {
     return (
-        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'teal.200'}>
+        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'purple.200'}>
             <BsFillWalletFill fill={'currentColor'} size="40px" />
         </Icon>
     );
@@ -54,7 +54,7 @@ function WalletGrid() {
             <GeneralCards
                 key={'convert address'}
                 name={'Convert address'}
-                role={`Converter between 0x and bech32(evmos1) addresses.`}
+                role={`Converter between 0x and bech32(echelon1) addresses.`}
                 content={[<ConvertAddress key="convertAddress" />]}
                 iconComponents={[
                     <MessagesIcon

@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEvmos, evmosToEth } from '@hanchon/ethermint-address-converter';
+import { ethToEchelon, echelonToEth } from 'ethermint-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -74,7 +74,7 @@ const QueryERC20Balance = () => {
                     <FormControl id="destSendControl2">
                         <FormLabel id="destSend2">Wallet Address</FormLabel>
                         <Input
-                            placeholder="0x.. or evmos1..."
+                            placeholder="0x.. or echelon1..."
                             type="text"
                             onChange={(e) => {
                                 if (
@@ -86,9 +86,9 @@ const QueryERC20Balance = () => {
                                 } else if (
                                     e.target.value
                                         .toLocaleLowerCase()
-                                        .split('evmos1').length == 2
+                                        .split('echelon1').length == 2
                                 ) {
-                                    setWallet(evmosToEth(e.target.value));
+                                    setWallet(echelonToEth(e.target.value));
                                 } else {
                                     setWallet('');
                                 }
@@ -102,7 +102,7 @@ const QueryERC20Balance = () => {
                         <FormControl id="buttonSendControl">
                             <Button
                                 w="full"
-                                bg="teal.300"
+                                bg="purple.300"
                                 color="white"
                                 onClick={() => {
                                     executeGetERC20Balance(

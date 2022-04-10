@@ -40,7 +40,7 @@ function TransactionsSubtitle() {
 
 export function TransactionsIconFooter() {
     return (
-        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'teal.200'}>
+        <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={'purple.200'}>
             <RiSecurePaymentLine fill={'currentColor'} size="40px" />
         </Icon>
     );

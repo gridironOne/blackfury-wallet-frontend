@@ -99,7 +99,7 @@ const Token = ({ Icon, name, balance, address, symbol, transfer }: any) => {
                         overflow="hidden"
                         boxShadow="lg"
                         m={3}
-                        bgGradient="linear(to-br, teal.500, teal.600)"
+                        bgGradient="linear(to-br, purple.500, purple.600)"
                     >
                         <Grid
                             templateRows={
@@ -112,12 +112,12 @@ const Token = ({ Icon, name, balance, address, symbol, transfer }: any) => {
                             <GridItem rowSpan={1} colSpan={1}>
                                 <Center h="full" pt={10}>
                                     <Circle
-                                        bg="teal.900"
+                                        bg="purple.900"
                                         h="75px"
                                         w="75px"
                                         boxShadow="base"
                                     >
-                                        <Circle bg="teal.700" h="60px" w="60px">
+                                        <Circle bg="purple.700" h="60px" w="60px">
                                             <Icon size="50px" />
                                         </Circle>
                                     </Circle>
@@ -215,11 +215,11 @@ const Token = ({ Icon, name, balance, address, symbol, transfer }: any) => {
                             >
                                 <Center alignItems="center" h="full">
                                     <Button
-                                        colorScheme="teal"
+                                        colorScheme="purple"
                                         variant="solid"
                                         _hover={{
                                             border: '1px',
-                                            backgroundColor: 'teal.400',
+                                            backgroundColor: 'purple.400',
                                         }}
                                         onClick={onOpen}
                                     >
@@ -250,7 +250,7 @@ const Token = ({ Icon, name, balance, address, symbol, transfer }: any) => {
                             <FormLabel>Destination Wallet:</FormLabel>
                             <Input
                                 variant="primary"
-                                placeholder="0x... / evmos1..."
+                                placeholder="0x... / echelon1..."
                                 onChange={(e) => setDest(e.target.value)}
                             />
                         </FormControl>

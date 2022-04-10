@@ -21,7 +21,7 @@ import {
 } from '../utils/backend';
 
 async function execute(dest: string, amount: string) {
-    if (dest.split('evmosvaloper1').length != 2) {
+    if (dest.split('echelonvaloper1').length != 2) {
         fireError('Undelegate Aphotons', 'Invalid destination!');
         return false;
     }
@@ -63,14 +63,14 @@ const UndelegateAphotons = () => {
             h="full"
             borderRadius={25}
         >
-            <Heading size="md">Undelegate aphotons</Heading>
+            <Heading size="md">Undelegate aechelons</Heading>
             <Divider />
             <SimpleGrid columns={2} columnGap={3} rowGap={6} w="full">
                 <GridItem colSpan={2}>
                     <FormControl id="destUndelegateControl">
                         <FormLabel id="destUndelegate">Destination</FormLabel>
                         <Input
-                            placeholder="evmosvaloper1t703ccll8shpkhwnvmtu5nzrvcaw52u8an2708"
+                            placeholder="echelonvaloper1t703ccll8shpkhwnvmtu5nzrvcaw52u8an2708"
                             type="text"
                             onChange={(e) => setDest(e.target.value)}
                         />
@@ -79,7 +79,7 @@ const UndelegateAphotons = () => {
                 <GridItem colSpan={2}>
                     <FormControl id="amountUndelegateControl">
                         <FormLabel id="amountUndelegate">
-                            Amount (Aphoton)
+                            Amount (Aechelon)
                         </FormLabel>
                         <Input
                             placeholder="10000000"
@@ -93,7 +93,7 @@ const UndelegateAphotons = () => {
                         <FormControl id="buttonUndelegateControl">
                             <Button
                                 w="full"
-                                bg="teal.300"
+                                bg="purple.300"
                                 color="white"
                                 onClick={() => {
                                     execute(dest, amount);
