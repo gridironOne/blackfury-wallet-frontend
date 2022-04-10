@@ -17,7 +17,7 @@ import { fireError, fireSuccess } from '../landing/alert';
 import { signTransaction, delegateAphoton, broadcast } from '../utils/backend';
 import { getAccount } from '../utils/blockchain/account';
 
-import { createTxMsgDelegate } from '@tharsis/transactions';
+import { createTxMsgDelegate, createTxMsgWithdrawDelegatorReward } from '@tharsis/transactions';
 import { BaseFee, chain } from '../utils/blockchain/chain';
 import { signCosmosAndBroadcastWithMetamask } from '../utils/signers/metamask';
 

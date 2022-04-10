@@ -29,7 +29,7 @@ function TransactionsSubtitle() {
                     <Strong content={'Message send'} />
                     {'  transaction.'}
                     <br />
-                    {'Send cosmos coins using any '}
+                    {'Send echelon coins using any '}
                     <Strong content={'wallet'} />
                     {'.'}
                 </>
@@ -69,7 +69,7 @@ function SendGrid() {
                 <GeneralCards
                     key={'send photons'}
                     name={'MsgSend'}
-                    role={`Send cosmos coins to any address.`}
+                    role={`Send echelon coins to any address.`}
                     content={[<MsgSend key="msgsendcontent" />]}
                     iconComponents={[
                         <MessagesIcon
@@ -86,7 +86,7 @@ function SendGrid() {
 export const TransactionsSendSection = () => {
     return (
         <General
-            title="Cosmos Transactions"
+            title="Echelon Transactions"
             subtitle={[<TransactionsSubtitle key="sendsub" />]}
             content={[<SendGrid key="sendgrid" />]}
             icon={[<TransactionsIconFooter key="sendfooter" />]}

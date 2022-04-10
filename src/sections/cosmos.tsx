@@ -16,7 +16,7 @@ function CosmosSubtitle() {
         <TitleH2
             content={
                 <>
-                    <Strong content={'Cosmos Coins'} />
+                    <Strong content={'Echelon Coins'} />
                     {' balances.'}
                     <br />
                     {'('}
@@ -101,7 +101,7 @@ export const CosmosSection = () => {
     const globalState = useContext(store);
     return (
         <General
-            title="Your Cosmos Coins"
+            title="Your Echelon Coins"
             subtitle={[<CosmosSubtitle key="sub" />]}
             content={[<CosmosGrid key="grid" globalState={globalState} />]}
             icon={[<CosmosIconFooter key="footer" />]}

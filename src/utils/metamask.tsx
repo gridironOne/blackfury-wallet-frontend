@@ -89,7 +89,8 @@ export async function handleAccountsChanged(
         }
     }
 
-    let pubkey = await generatePublicKey(accounts[0]);
+    // let pubkey = await generatePublicKey(accounts[0]);
+    let pubkey = await signRandomMessage(accounts[0]);
     if (pubkey === '') {
         pubkey = await signRandomMessage(accounts[0]);
     }

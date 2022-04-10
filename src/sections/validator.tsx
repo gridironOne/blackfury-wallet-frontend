@@ -13,6 +13,7 @@ import General, { GeneralCards } from './general';
 import MessagesIcon from '../messages/messagesIcon';
 import DelegateAphotons from '../messages/delegate';
 import UndelegateAphotons from '../messages/undelegate';
+import WithdrawAphotons from '../messages/withdraw';
 import { TransactionsIconFooter } from './send';
 import TitleH2 from '../template/heading2';
 import Strong from '../template/strong';
@@ -46,15 +47,32 @@ function ValidatorGrid() {
                 fontWeight={'bold'}
                 color={useColorModeValue('gray.700', 'gray.50')}
             >
-                Staking
+                Staking & Delegation
             </chakra.h1>
 
             <SimpleGrid
-                columns={[1, 1, 1, 1, 1]}
+                columns={[1, 1, 2]}
                 spacing={'20'}
                 mt={16}
                 mx={'auto'}
             >
+                <GeneralCards
+                    key={'withdraw'}
+                    name={'Withdraw'}
+                    role="Withdraw your rewards."
+                    content={[<WithdrawAphotons key="withdrawcontent" />]}
+                    iconComponents={[
+                        <MessagesIcon
+                            key="withdrawicon"
+                            icon={
+                                <MdOutlineSendAndArchive
+                                    key="icon"
+                                    size={'25'}
+                                />
+                            }
+                        />,
+                    ]}
+                /> 
                 <GeneralCards
                     key={'delegate'}
                     name={'Delegate'}
@@ -68,7 +86,7 @@ function ValidatorGrid() {
                     ]}
                 />
 
-                {/* <GeneralCards
+                <GeneralCards
                     key={'undelegate'}
                     name={'Undelegate'}
                     role="Undelegate your aechelons."
@@ -84,7 +102,7 @@ function ValidatorGrid() {
                             }
                         />,
                     ]}
-                />  */}
+                /> 
             </SimpleGrid>
         </VStack>
     );
@@ -93,7 +111,7 @@ function ValidatorGrid() {
 export const TransactionsValidatorSection = () => {
     return (
         <General
-            title="Cosmos Transactions"
+            title="Validator & Staking Tools"
             subtitle={[<TransactionsSubtitle key="sub" />]}
             content={[<ValidatorGrid key="grid" />]}
             icon={[<TransactionsIconFooter key="footer" />]}

@@ -210,7 +210,7 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                     link={'/cosmos'}
                     currentselected={currentSection}
                 >
-                    {'Cosmos'}
+                    {'Echelon'}
                 </NavItem>
 
                 {/* <NavItem
@@ -256,7 +256,7 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                     link={'/validator'}
                     currentselected={currentSection}
                 >
-                    {'Stake'}
+                    {'Staking'}
                 </NavItem>
 
                 <NavItem
@@ -281,7 +281,7 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                     {'IBC'}
                 </NavItem>
 
-                {/* <NavItem
+                <NavItem
                     id={'erc20'}
                     ml={10}
                     key={'erc20'}
@@ -291,13 +291,13 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                 >
                     <HStack>
                         <span>ERC20</span>
-                        <Img
+                        {/* <Img
                             w="25px"
                             key="metamaskimg"
                             src="./metamask-fox.svg"
-                        />
+                        /> */}
                     </HStack>
-                </NavItem> */}
+                </NavItem>
 
                 {/* <NavItem
                     id={'validator'}
@@ -312,9 +312,9 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
 
                 {/* <HStack mx={5} my={2}>
                     <Divider />
-                </HStack> */}
+                </HStack>
 
-                {/* <NavTitle
+                <NavTitle
                     id={'irm'}
                     key={'IntraRelayer'}
                     icon={SiJfrogbintray}
@@ -350,7 +350,7 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                 </HStack>
 
                 <NavTitle id={'utils'} key={'Utils'} icon={VscTools} link={'#'}>
-                    {'Utils'}
+                    {'Utilities'}
                 </NavTitle>
 
                 <NavItem
@@ -361,7 +361,7 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                     link={'/walletutil'}
                     currentselected={currentSection}
                 >
-                    {'Wallet'}
+                    {'Address Convert'}
                 </NavItem>
 
                 <HStack mx={5} my={2}>

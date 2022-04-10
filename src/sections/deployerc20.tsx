@@ -36,10 +36,7 @@ function ERC20Subtitle() {
                     <Strong content={'ERC20'} />
                     {' helper.'}
                     <br />
-                    {'Deploy an ERC20 contract using '}
-                    <Strong
-                        content={'Open Zeppelin - ERC20PresetMinterPauser'}
-                    />
+                    {'Transfer an ERC20 token to another echelon account!'}
                     {'.'}
                 </>
             }
@@ -59,23 +56,14 @@ function DeployERC20Grid() {
     const globalState = useContext(store);
     return (
         <VStack w="full">
-            <chakra.h1
-                py={5}
-                fontSize={35}
-                fontFamily={'Work Sans'}
-                fontWeight={'bold'}
-                color={useColorModeValue('gray.700', 'gray.50')}
-            >
-                Deployment
-            </chakra.h1>
 
             <SimpleGrid
-                columns={[1, 1, 1, 1, 2]}
+                columns={[1]}
                 spacing={'20'}
                 mt={16}
                 mx={'auto'}
             >
-                <GeneralCards
+                {/* <GeneralCards
                     key={'deploy erc20'}
                     name={'ERC20PresetMinterPauser'}
                     role={`Submit the ERC20 contract.`}
@@ -99,7 +87,7 @@ function DeployERC20Grid() {
                             icon={<BsFilePlus size={'24'} />}
                         />,
                     ]}
-                />
+                /> */}
                 <GeneralCards
                     key={'transfererc20'}
                     name={'Transfer ERC20'}
@@ -120,7 +108,7 @@ function DeployERC20Grid() {
 export const DeployErc20Section = () => {
     return (
         <General
-            title="Deploy ERC20 Tokens on ECH"
+            title="Transfer ERC20 Tokens"
             subtitle={[<ERC20Subtitle key="deploysub" />]}
             content={[<DeployERC20Grid key="deploygrid" />]}
             icon={[<TransactionsIconFooter key="deployfooter" />]}

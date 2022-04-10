@@ -38,7 +38,7 @@ export default function CallToActionWithAnnotation() {
                             wallet.ech.network <br />
                             <Text
                                 as={'span'}
-                                color={'green.400'}
+                                color={'yellow.400'}
                                 fontSize={{ base: 'lg', sm: '4xl', md: '6xl' }}
                                 fontWeight={600}
                             >
@@ -58,12 +58,12 @@ export default function CallToActionWithAnnotation() {
                                 style={{ textDecoration: 'none' }}
                             >
                                 <Button
-                                    colorScheme={'green'}
-                                    bg={'green.400'}
+                                    colorScheme={'purple'}
+                                    bg={'purple.700'}
                                     rounded={'full'}
                                     px={6}
                                     _hover={{
-                                        bg: 'green.500',
+                                        bg: 'purple.600',
                                     }}
                                 >
                                     Get Started

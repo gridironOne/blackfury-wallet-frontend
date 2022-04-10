@@ -31,7 +31,7 @@ function ConvertCoinsSubtitle() {
             content={
                 <>
                     {'Convert '}
-                    <Strong content={'cosmos coins'} />
+                    <Strong content={'echelon coins'} />
                     {' and '}
                     <Strong content={'ERC20'} />
                     {' tokens.'}
@@ -70,7 +70,7 @@ function ProposalGrid() {
                 <GeneralCards
                     key={'converterc20'}
                     name={'Convert ERC20'}
-                    role={`Convert erc20 tokens to cosmos coins.`}
+                    role={`Convert erc20 tokens to echelon coins.`}
                     content={[<ConvertERC20 key="msgsendcontent" />]}
                     iconComponents={[
                         <MessagesIcon
@@ -100,7 +100,7 @@ function ProposalGrid() {
 export const ConvertCoinsSections = () => {
     return (
         <General
-            title="Cosmos Transactions"
+            title="Echelon Conversions"
             subtitle={[<ConvertCoinsSubtitle key="convertcoinssub" />]}
             content={[<ProposalGrid key="convertcoinsgrid" />]}
             icon={[<ProposalsIconFooter key="convertcoinsfooter" />]}

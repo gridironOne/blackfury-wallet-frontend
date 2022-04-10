@@ -46,13 +46,13 @@ export async function getAccount() {
 
     const get = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' }
     };
 
     let resp;
     try {
-        let addr = await fetch(
-            `${REACT_APP_NODE_URL}${accountEndpoint}${userWallet}`,
+        let addr = await fetch(`/accounts/${userWallet}`,
+            // `${REACT_APP_NODE_URL}${accountEndpoint}${userWallet}`,
             get
         );
         // If error 400 wallet doesn't exists

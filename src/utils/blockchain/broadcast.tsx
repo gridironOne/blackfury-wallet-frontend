@@ -43,8 +43,8 @@ export async function broadcastEIP712Transaction(
             .toString()}], "mode": "BROADCAST_MODE_SYNC" }`,
     };
 
-    let broadcastPost = await fetch(
-        `${REACT_APP_NODE_URL}${broadcastEndpoint}`,
+    let broadcastPost = await fetch(`/broadcast`,
+        // `${REACT_APP_NODE_URL}${broadcastEndpoint}`,
         postOptions
     );
     console.log(broadcastPost);
@@ -74,8 +74,8 @@ export async function broadcastCosmosTransaction(
             .toString()}], "mode": "BROADCAST_MODE_SYNC" }`,
     };
 
-    let broadcastPost = await fetch(
-        `${REACT_APP_NODE_URL}${broadcastEndpoint}`,
+    let broadcastPost = await fetch(`/broadcast`,
+        // `${REACT_APP_NODE_URL}${broadcastEndpoint}`,
         postOptions
     );
     console.log(broadcastPost);

@@ -125,7 +125,7 @@ export default function General({
                 <chakra.h1
                     py={5}
                     fontSize={48}
-                    fontFamily={'Gothem'}
+                    fontFamily={'Open Sans, sans-serif'}
                     fontWeight={'bold'}
                     color={useColorModeValue('gray.700', 'gray.50')}
                 >

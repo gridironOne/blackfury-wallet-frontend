@@ -1,6 +1,6 @@
 @import 'compass/css3';
 
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Poppins:wght@100;400;900&display=swap');
 body {
     background-color: #eee;
     min-height: 100%;
@@ -9,5 +9,5 @@ body {
     background-image: url('http://isaacsuttell.com/img/justine.jpg');
     background-size: cover;
     background-position: center;
-    font-family: Raleway, sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
