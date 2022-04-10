@@ -32,11 +32,11 @@ const ERC20Item = () => {
                             <Center h="full" pt={10}>
                                 <Circle
                                     bg="purple.900"
-                                    h="75px"
-                                    w="75px"
+                                    size="75px"
+                                    // w="75px"
                                     boxShadow="base"
                                 >
-                                    <Circle bg="purple.700" h="60px" w="60px">
+                                    <Circle bg="purple.700" size="60px" >
                                         <FaEthereum size="50px" />
                                     </Circle>
                                 </Circle>

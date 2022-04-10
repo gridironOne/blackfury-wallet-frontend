@@ -496,14 +496,13 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             justifyContent={{ base: 'space-between', md: 'flex-end' }}
             {...rest}
         >
-            <Icon
+            {/* <Icon
                 id="mobilenavicon"
                 display={{ base: 'flex', md: 'none' }}
                 onClick={onOpen}
-                variant="outline"
                 aria-label="open menu"
                 icon={<FiMenu />}
-            />
+            /> */}
 
             <Text
                 id="mobilenavtext"
