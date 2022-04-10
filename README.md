@@ -1,10 +1,8 @@
-# Echelon.me Frontend
+# wallet.ech.network Frontend
 
-A `#HackAtom` 2021 project: a wallet integration for echelon.
+Wallet Metamask Integration with Echelon Native Cosmos Chain
 
 ## Requirements
-
--   Echelon.me backend
 -   NodeJs
 
 ## Local development
@@ -12,10 +10,6 @@ A `#HackAtom` 2021 project: a wallet integration for echelon.
 ```sh
 yarn dev
 ```
-
-## Variables
-
-`REACT_APP_BACKEND_URL` it should point to the url where [wallet.ech.network-backend](https://github.com/hanchon-live/wallet.ech.network-backend) is hosted.
 
 ## Deployment
 
