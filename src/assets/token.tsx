@@ -112,7 +112,7 @@ const Token = ({ Icon, name, balance, address, symbol, transfer }: any) => {
                             <GridItem rowSpan={1} colSpan={1}>
                                 <Center h="full" pt={10}>
                                     <Circle
-                                        bg="purple.900"
+                                        bg="teal.900"
                                         h="75px"
                                         w="75px"
                                         boxShadow="base"
