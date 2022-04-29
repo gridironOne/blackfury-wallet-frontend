@@ -45,7 +45,7 @@ import { Image } from '@chakra-ui/image';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import { BiLogOut, BiUpArrow, BiWallet } from 'react-icons/bi';
-import { FaEthereum, FaFirefox, FaReact, FaVoteYea } from 'react-icons/fa';
+import { FaEthereum, FaFirefox, FaReact, FaSearchPlus, FaVoteYea } from 'react-icons/fa';
 import { ArrowDownIcon, ArrowUpIcon } from '@chakra-ui/icons';
 import { AiFillAppstore, AiOutlineTransaction } from 'react-icons/ai';
 import { connectMetamask } from '../utils/metamask';
@@ -126,8 +126,10 @@ interface SidebarProps extends BoxProps {
     currentSection: string;
 }
 
+
 const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
     const globalState: GlobalState = useContext(store);
+
 
     return (
         <Box
@@ -270,7 +272,7 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                     {'Vote'}
                 </NavItem>
 
-                <NavItem
+                {/* <NavItem
                     id={'ibc'}
                     ml={10}
                     key={'IBC'}
@@ -279,7 +281,7 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                     currentselected={currentSection}
                 >
                     {'IBC'}
-                </NavItem>
+                </NavItem> */}
 
                 <NavItem
                     id={'erc20'}
@@ -362,6 +364,28 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                     currentselected={currentSection}
                 >
                     {'Address Convert'}
+                </NavItem>
+
+                <NavItem
+                    id={'bridge'}
+                    ml={10}
+                    key={'Bridge'}
+                    icon={SiJfrogbintray}
+                    link={'https://bridge.ech.network'}
+                    currentselected={currentSection}
+                >
+                    {'Bridge'}
+                </NavItem>
+
+                <NavItem
+                    id={'explorer'}
+                    ml={10}
+                    key={'Explorer'}
+                    icon={FaSearchPlus}
+                    link={'https://ping.pub/echelon'}
+                    currentselected={currentSection}
+                >
+                    {'Explorer'}
                 </NavItem>
 
                 <HStack mx={5} my={2}>
