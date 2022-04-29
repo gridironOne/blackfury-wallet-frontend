@@ -8,7 +8,7 @@ module.exports = {
             destination: 'https://api.ech.network/cosmos/auth/v1beta1/accounts/:slug*'
           },
           {
-            source: '/broadcast/',
+            source: '/broadcast',
             destination: 'https://api.ech.network/cosmos/tx/v1beta1/txs'
           },
           {
