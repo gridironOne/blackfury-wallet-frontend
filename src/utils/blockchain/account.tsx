@@ -10,8 +10,8 @@ export async function echelonPubKey(address: string) {
 
     let resp: any;
     try {
-        let addr = await fetch(
-            `${REACT_APP_NODE_URL}${accountEndpoint}${address}`,
+        let addr = await fetch(`/accounts/${address}`,
+            // `${REACT_APP_NODE_URL}${accountEndpoint}${address}`,
             get
         );
         // If error 400 wallet doesn't exists
@@ -67,5 +67,37 @@ export async function getAccount() {
         sequence: parseInt(resp.account.base_account.sequence),
         accountNumber: parseInt(resp.account.base_account.account_number),
         pubkey: pubkey,
+    };
+}
+
+export async function getRewards() {
+    // TODO: abstract this logic as get account
+    const userWallet = getWalletEchelon();
+    if (userWallet == null) {
+        return null;
+    }
+
+    const get = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+
+    let resp;
+    try {
+        let addr = await fetch(`/rewards/${userWallet}`,
+            // `${REACT_APP_NODE_URL}${accountEndpoint}${userWallet}`,
+            get
+        );
+        // If error 400 wallet doesn't exists
+        resp = await addr.json();
+        console.log(resp.rewards.reward.amount);
+    } catch (e) {
+        console.error(e);
+        return null;
+    }
+
+    return {
+        validatorAddress: resp.rewards.validator_address,
+        rewards: resp.rewards.reward.amount,
     };
 }

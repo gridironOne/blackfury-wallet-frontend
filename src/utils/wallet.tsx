@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useContext, useEffect } from 'react';
 import { getAllERC20Balances } from './backend';
-import { echelonPubKey } from './blockchain/account';
+import { echelonPubKey, getRewards } from './blockchain/account';
 import { getAllBalances } from './blockchain/balances';
 import {
     getProvider,
@@ -51,6 +51,8 @@ export async function queryBalances(store: GlobalState) {
     if (wallet !== null) {
         balance = await getAllBalances(wallet);
         // var pubkey = await echelonPubKey(wallet);
+        var rewards = await getRewards();
+        console.log(rewards);
         // setPubKey(pubkey);
     }
     store.dispatch({ type: 'cosmosCoins', payload: balance });
