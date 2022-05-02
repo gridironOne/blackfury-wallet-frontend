@@ -251,11 +251,11 @@ const SidebarContent = ({ onClose, currentSection, ...rest }: SidebarProps) => {
                 </NavItem>
 
                 <NavItem
-                    id={'validator'}
+                    id={'staking'}
                     ml={10}
-                    key={'Validator'}
+                    key={'Staking'}
                     icon={RiSecurePaymentLine}
-                    link={'/validator'}
+                    link={'/staking'}
                     currentselected={currentSection}
                 >
                     {'Staking'}

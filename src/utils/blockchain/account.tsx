@@ -90,14 +90,28 @@ export async function getRewards() {
         );
         // If error 400 wallet doesn't exists
         resp = await addr.json();
-        console.log(resp.rewards.reward.amount);
+        console.log(resp);
     } catch (e) {
         console.error(e);
-        return null;
+        return 0;
     }
 
-    return {
-        validatorAddress: resp.rewards.validator_address,
-        rewards: resp.rewards.reward.amount,
-    };
+    // return {
+    //     validatorAddress: resp.rewards.validator_address,
+    //     if (resp.length > 1) {
+    //         rewards: resp.rewards.reward.amount,
+    //     }
+    // };
+
+    if (Array.isArray(resp.rewards)) {
+        if (typeof resp.rewards[0] !== 'undefined') {
+            if (typeof resp.rewards[0].reward[0] !== 'undefined') {
+                if (typeof resp.rewards[0].reward[0].amount !== 'undefined') {
+                    return resp.rewards[0].reward[0].amount;
+                }
+            }
+        } else {
+            return 0;
+        }
+    }
 }

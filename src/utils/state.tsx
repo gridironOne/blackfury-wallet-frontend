@@ -17,6 +17,7 @@ export interface BalanceCosmos {
         total: string;
         nextKey: string;
     };
+    rewards: string;
 }
 
 export interface BalanceERC20Item {
@@ -35,6 +36,7 @@ export interface GlobalState {
         balanceCosmos: Balance[];
         balanceERC20: BalanceERC20Item[];
         aphoton: string;
+        rewards: string;
     };
     dispatch: React.Dispatch<Action>;
 }
@@ -47,6 +49,7 @@ const initialState: any = {
     balanceCosmos: [],
     balanceERC20: [],
     aphoton: '0',
+    rewards: '0',
 };
 const store = createContext(initialState);
 const { Provider } = store;
@@ -64,6 +67,10 @@ const StateProvider = ({ children }: any) => {
                 return { ...state, pubkey: action.payload.pubkey };
             case 'provider':
                 return { ...state, provider: action.payload.provider };
+            case 'rewards':
+                return { ...state, 
+                    rewards: action.payload.rewards 
+                };
             case 'cleanup':
                 return initialState;
             case 'update':

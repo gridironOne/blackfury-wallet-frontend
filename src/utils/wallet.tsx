@@ -1,3 +1,4 @@
+import { type } from 'os';
 import React from 'react';
 
 import { useContext, useEffect } from 'react';
@@ -48,14 +49,16 @@ export async function reconnectWallet(state: GlobalState) {
 export async function queryBalances(store: GlobalState) {
     const wallet = getWalletEchelon();
     let balance: BalanceCosmos[] = [];
+    var rewards;
     if (wallet !== null) {
         balance = await getAllBalances(wallet);
         // var pubkey = await echelonPubKey(wallet);
-        var rewards = await getRewards();
+        rewards = await getRewards();
         console.log(rewards);
         // setPubKey(pubkey);
     }
     store.dispatch({ type: 'cosmosCoins', payload: balance });
+    store.dispatch({ type: 'rewards', payload: {rewards: rewards }});
 }
 
 export function WalletInitializer() {

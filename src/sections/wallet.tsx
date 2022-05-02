@@ -11,6 +11,8 @@ import TextSpan from '../theme/textSpan';
 import { store } from '../utils/state';
 import General, { GeneralCards } from './general';
 
+import Web3 from 'web3';
+
 function WalletSubtitle() {
     return (
         <TitleH2
@@ -39,6 +41,8 @@ function WalletIconFooter() {
 
 function WalletGrid() {
     const globalState = useContext(store);
+
+    const web3 = new Web3('https://draco.ech.network');
 
     const data = [
         {
@@ -79,11 +83,22 @@ function WalletGrid() {
         },
         {
             name: 'Balance',
-            role: '(aechelon) Current echelon coin balance',
+            role: 'Current Echelon (ECH) coin balance',
             content: [
                 <TextSpan
-                    content={`${globalState.state.aphoton} Aechelon`}
+                    content={`${web3.utils.fromWei(globalState.state.aphoton, 'ether')} ECH`}
                     key="balancetext"
+                />,
+            ],
+            avatar: useColorModeValue('./coins.png', './coins-white.png'),
+        },
+        {
+            name: 'Rewards',
+            role: 'Current Echelon (ECH) coin rewards',
+            content: [
+                <TextSpan
+                    content={`≈${parseInt(globalState.state.rewards/1e18).toString()} ECH`}
+                    key="rewardstext"
                 />,
             ],
             avatar: useColorModeValue('./coins.png', './coins-white.png'),

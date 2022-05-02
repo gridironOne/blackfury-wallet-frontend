@@ -50,6 +50,11 @@ function ValidatorGrid() {
                 Staking & Delegation
             </chakra.h1>
 
+            <p>You may find an Echelon validator address (echelonvaloper1...) to stake aka delegate to from <a href="https://ping.pub/echelon/staking" target="_blank">Ping.pub</a>
+            <br />
+            1000000000000000000 aechelon = 1 ECH
+            </p><br />
+
             <SimpleGrid
                 columns={[1, 1, 2]}
                 spacing={'20'}
