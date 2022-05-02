@@ -1,4 +1,4 @@
-import { ethToEchelon, echelonToEth } from 'ethermint-address-converter';
+import { ethToEchelon, echelonToEth } from 'echelon-address-converter';
 import { fromHexString, signatureToPubkey } from '@hanchon/signature-to-pubkey';
 import { fireSuccess } from '../landing/alert';
 import { generatePublicKey } from './backend';

@@ -1,4 +1,4 @@
-import { ethToEchelon, echelonToEth } from 'ethermint-address-converter';
+import { ethToEchelon, echelonToEth } from 'echelon-address-converter';
 import { GiConsoleController } from 'react-icons/gi';
 import { fireError, fireSuccess } from '../landing/alert';
 import { REACT_APP_BACKEND_URL, REACT_APP_NODE_URL } from './contants';

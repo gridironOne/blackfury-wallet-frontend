@@ -278,7 +278,7 @@ import {
     SignTypedDataVersion,
     TypedDataUtils,
 } from '@metamask/eth-sig-util';
-import { ethToEchelon } from 'ethermint-address-converter';
+import { ethToEchelon } from 'echelon-address-converter';
 async function test2() {
     console.log(ethToEchelon('0x5A7284d1f3A1BeFbB69832452C7624fC12143D33'));
     let a = signTypedData({

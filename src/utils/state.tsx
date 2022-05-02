@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import internal from 'stream';
-import { ethToEchelon } from 'ethermint-address-converter';
+import { ethToEchelon } from 'echelon-address-converter';
 
 interface Action {
     type: string;

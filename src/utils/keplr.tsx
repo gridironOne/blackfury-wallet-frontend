@@ -1,4 +1,4 @@
-import { echelonToEth } from 'ethermint-address-converter';
+import { echelonToEth } from 'echelon-address-converter';
 import { fireError, fireSuccess } from '../landing/alert';
 import { setKeplr, setPubKey, setWalletEth, setWalletEchelon } from './db';
 import { reconnectWallet } from './wallet';
