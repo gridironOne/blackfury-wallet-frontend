@@ -58,7 +58,7 @@ export async function queryBalances(store: GlobalState) {
         // setPubKey(pubkey);
     }
     store.dispatch({ type: 'cosmosCoins', payload: balance });
-    store.dispatch({ type: 'rewards', payload: {rewards: rewards }});
+    store.dispatch({ type: 'rewards', payload: {rewards: parseInt(rewards) }});
 }
 
 export function WalletInitializer() {

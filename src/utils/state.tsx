@@ -36,7 +36,7 @@ export interface GlobalState {
         balanceCosmos: Balance[];
         balanceERC20: BalanceERC20Item[];
         aphoton: string;
-        rewards: string;
+        rewards: number;
     };
     dispatch: React.Dispatch<Action>;
 }
@@ -49,7 +49,7 @@ const initialState: any = {
     balanceCosmos: [],
     balanceERC20: [],
     aphoton: '0',
-    rewards: '0',
+    rewards: 0,
 };
 const store = createContext(initialState);
 const { Provider } = store;

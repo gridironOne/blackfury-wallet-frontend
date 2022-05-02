@@ -97,7 +97,7 @@ function WalletGrid() {
             role: 'Current Echelon (ECH) coin rewards',
             content: [
                 <TextSpan
-                    content={`≈${parseInt(globalState.state.rewards/1e18).toString()} ECH`}
+                    content={`≈${(globalState.state.rewards/1e18).toString()} ECH`}
                     key="rewardstext"
                 />,
             ],
