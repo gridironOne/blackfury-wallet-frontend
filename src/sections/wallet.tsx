@@ -86,7 +86,7 @@ function WalletGrid() {
             role: 'Current Echelon (ECH) coin balance',
             content: [
                 <TextSpan
-                    content={`${web3.utils.fromWei(globalState.state.aphoton, 'ether')} ECH`}
+                    content={`${web3.utils.fromWei(globalState.state.aphoton.toString(), 'ether')} ECH`}
                     key="balancetext"
                 />,
             ],
