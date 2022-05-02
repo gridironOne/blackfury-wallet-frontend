@@ -32,6 +32,8 @@ import {
     FiChevronDown,
 } from 'react-icons/fi';
 
+import { TiThMenu } from 'react-icons/ti'
+
 import { SiJfrogbintray, SiInternetarchive, SiConvertio } from 'react-icons/si';
 import { VscTools } from 'react-icons/vsc';
 
@@ -520,13 +522,14 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             justifyContent={{ base: 'space-between', md: 'flex-end' }}
             {...rest}
         >
-            {/* <Icon
+            <Icon
                 id="mobilenavicon"
                 display={{ base: 'flex', md: 'none' }}
                 onClick={onOpen}
-                aria-label="open menu"
-                icon={<FiMenu />}
-            /> */}
+                aria-label="open menu">
+
+                <TiThMenu size="26px" />
+            </Icon>
 
             <Text
                 id="mobilenavtext"
