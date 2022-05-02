@@ -86,9 +86,13 @@ function WalletGrid() {
             role: 'Current Echelon (ECH) coin balance',
             content: [
                 <TextSpan
-                    content={`${web3.utils.fromWei(globalState.state.aphoton.toString(), 'ether')} ECH`}
+                    content={`≈${(globalState.state.aphoton/1e18).toString()} ECH`}
                     key="balancetext"
                 />,
+                <TextSpan
+                content={`(${globalState.state.aphoton} aechelon)`}
+                key="balancetext"
+            />,
             ],
             avatar: useColorModeValue('./coins.png', './coins-white.png'),
         },
@@ -100,6 +104,10 @@ function WalletGrid() {
                     content={`≈${(globalState.state.rewards/1e18).toString()} ECH`}
                     key="rewardstext"
                 />,
+            //     <TextSpan
+            //     content={`(≈${globalState.state.rewards} aechelon)`}
+            //     key="rewardstext"
+            // />,
             ],
             avatar: useColorModeValue('./coins.png', './coins-white.png'),
         },
