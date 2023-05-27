@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEchelon } from 'echelon-address-converter';
+import { ethToBlackfury } from 'blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -22,7 +22,7 @@ import {
     callConvertErc20,
     callToggleToken,
 } from '../utils/backend';
-import { getWalletEth, getWalletEchelon } from '../utils/db';
+import { getWalletEth, getWalletBlackfury } from '../utils/db';
 
 export async function executeToggleToken(
     token: string,
@@ -46,7 +46,7 @@ export async function executeToggleToken(
         gasLimit = '1000000';
     }
 
-    const myWallet = getWalletEchelon();
+    const myWallet = getWalletBlackfury();
     if (myWallet === null) {
         fireError('Toggle Token', 'Invalid wallet!');
         return false;

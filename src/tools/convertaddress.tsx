@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEchelon, echelonToEth } from 'echelon-address-converter';
+import { ethToBlackfury, blackfuryToEth } from 'blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -33,7 +33,7 @@ const ConvertAddress = () => {
                     <FormControl id="destSendControl">
                         <FormLabel id="destSend">Address</FormLabel>
                         <Input
-                            placeholder="0x.. or echelon1..."
+                            placeholder="0x.. or blackfury1..."
                             type="text"
                             onChange={(e) => {
                                 if (
@@ -41,13 +41,13 @@ const ConvertAddress = () => {
                                         .toLocaleLowerCase()
                                         .split('0x').length == 2
                                 ) {
-                                    setResult(ethToEchelon(e.target.value));
+                                    setResult(ethToBlackfury(e.target.value));
                                 } else if (
                                     e.target.value
                                         .toLocaleLowerCase()
-                                        .split('echelon1').length == 2
+                                        .split('blackfury1').length == 2
                                 ) {
-                                    setResult(echelonToEth(e.target.value));
+                                    setResult(blackfuryToEth(e.target.value));
                                 } else {
                                     setResult('');
                                 }

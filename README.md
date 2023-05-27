@@ -1,6 +1,6 @@
-# wallet.ech.network Frontend
+# wallet.fury.black Frontend
 
-Wallet Metamask Integration with Echelon Native Cosmos Chain
+Wallet Metamask Integration with Blackfury Native Cosmos Chain
 
 ## Requirements
 -   NodeJs

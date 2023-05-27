@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEchelon } from 'echelon-address-converter';
+import { ethToBlackfury } from 'blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -28,8 +28,8 @@ async function execute(
     feeDenom: string,
     feeGas: string
 ) {
-    if (dest.split('echelonvaloper1').length != 2) {
-        fireError('Withdraw Aechelon', 'Invalid source!');
+    if (dest.split('blackfuryvaloper1').length != 2) {
+        fireError('Withdraw Ablackfury', 'Invalid source!');
         return false;
     }
 
@@ -42,7 +42,7 @@ async function execute(
     }
 
     if (feeDenom == '') {
-        feeDenom = 'aechelon';
+        feeDenom = 'afury';
     }
 
     if (feeGas == '') {
@@ -89,7 +89,7 @@ const WithdrawAphotons = () => {
                     <FormControl id="destDelegateControl">
                         <FormLabel id="destDelegate">Source</FormLabel>
                         <Input
-                            placeholder="echelonvaloper1t703ccll8shpkhwnvmtu5nzrvcaw52u8an2708"
+                            placeholder="blackfuryvaloper1t703ccll8shpkhwnvmtu5nzrvcaw52u8an2708"
                             type="text"
                             onChange={(e) => setDest(e.target.value)}
                         />
@@ -125,7 +125,7 @@ const WithdrawAphotons = () => {
                     <FormControl id="memoSendControl">
                         <FormLabel id="memoSend">Fee Denom(optional)</FormLabel>
                         <Input
-                            placeholder="aechelon"
+                            placeholder="afury"
                             type="text"
                             onChange={(e) => setFeeDenom(e.target.value)}
                         />

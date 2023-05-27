@@ -42,19 +42,19 @@ function WalletIconFooter() {
 function WalletGrid() {
     const globalState = useContext(store);
 
-    const web3 = new Web3('https://draco.ech.network');
+    const web3 = new Web3('https://draco.fury.black');
 
     const data = [
         {
-            name: 'Echelon',
-            role: '(Bech32) Echelon encoded wallet',
+            name: 'Blackfury',
+            role: '(Bech32) Blackfury encoded wallet',
             content: [
                 <TextSpan
-                    content={globalState.state.walletEchelon}
+                    content={globalState.state.walletBlackfury}
                     key="evmotext"
                 />,
             ],
-            avatar: useColorModeValue('./echelon.gif', './echelon.gif'), // black and then white
+            avatar: useColorModeValue('./blackfury.gif', './blackfury.gif'), // black and then white
         },
         {
             name: 'Hex',
@@ -83,14 +83,14 @@ function WalletGrid() {
         },
         {
             name: 'Balance',
-            role: 'Current Echelon (ECH) coin balance',
+            role: 'Current Blackfury (ECH) coin balance',
             content: [
                 <TextSpan
                     content={`≈${(globalState.state.aphoton/1e18).toString()} ECH`}
                     key="balancetext"
                 />,
                 <TextSpan
-                content={`(${globalState.state.aphoton} aechelon)`}
+                content={`(${globalState.state.aphoton} afury)`}
                 key="balancetext"
             />,
             ],
@@ -98,14 +98,14 @@ function WalletGrid() {
         },
         {
             name: 'Rewards',
-            role: 'Current Echelon (ECH) coin rewards',
+            role: 'Current Blackfury (ECH) coin rewards',
             content: [
                 <TextSpan
                     content={`≈${(globalState.state.rewards/1e18).toString()} ECH`}
                     key="rewardstext"
                 />,
             //     <TextSpan
-            //     content={`(≈${globalState.state.rewards} aechelon)`}
+            //     content={`(≈${globalState.state.rewards} afury)`}
             //     key="rewardstext"
             // />,
             ],

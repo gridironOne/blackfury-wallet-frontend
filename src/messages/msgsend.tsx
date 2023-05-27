@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEchelon } from 'echelon-address-converter';
+import { ethToBlackfury } from 'blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -28,7 +28,7 @@ import {
     createTxRawEIP712,
     signatureToWeb3Extension,
 } from '@tharsis/transactions';
-import { echelonToEth } from 'echelon-address-converter';
+import { blackfuryToEth } from 'blackfury-address-converter';
 import { getAccount } from '../utils/blockchain/account';
 import { BaseFee, chain } from '../utils/blockchain/chain';
 import {
@@ -47,7 +47,7 @@ export async function executeMsgSend(
     feeGas: string
 ) {
     if (denom == '') {
-        denom = 'aechelon';
+        denom = 'afury';
     }
 
     if (feeAmount == '') {
@@ -59,7 +59,7 @@ export async function executeMsgSend(
     }
 
     if (feeDenom == '') {
-        feeDenom = 'aechelon';
+        feeDenom = 'afury';
     }
 
     if (feeGas == '') {
@@ -70,9 +70,9 @@ export async function executeMsgSend(
         return false;
     }
 
-    if (dest.split('echelon').length != 2) {
+    if (dest.split('blackfury').length != 2) {
         if (dest.split('0x').length == 2) {
-            dest = ethToEchelon(dest);
+            dest = ethToBlackfury(dest);
         } else {
             fireError('Msg Send', 'Invalid destination!');
             return false;
@@ -140,7 +140,7 @@ export async function executeMsgSend(
 
 //     const fee = {
 //         amount: '20',
-//         denom: 'aechelon',
+//         denom: 'afury',
 //         gas: '200000',
 //     };
 
@@ -155,7 +155,7 @@ export async function executeMsgSend(
 //             sourceChannel: 'channel-0',
 //             // Token
 //             amount: '10000',
-//             denom: 'aechelon',
+//             denom: 'afury',
 //             // Addresses
 //             receiver: 'osmo1pmk2r32ssqwps42y3c9d4clqlca403yd05x9ye',
 //             // Timeout
@@ -214,7 +214,7 @@ const MsgSend = () => {
                         <FormControl id="destSendControl">
                             <FormLabel id="destSend">Destination</FormLabel>
                             <Input
-                                placeholder="0x.. or echelon1..."
+                                placeholder="0x.. or blackfury1..."
                                 type="text"
                                 onChange={(e) => setDest(e.target.value)}
                             />
@@ -234,7 +234,7 @@ const MsgSend = () => {
                         <FormControl id="denomSendControl">
                             <FormLabel id="denomSend">Coin(Optional)</FormLabel>
                             <Input
-                                placeholder="aechelon"
+                                placeholder="afury"
                                 type="text"
                                 onChange={(e) => setDenom(e.target.value)}
                             ></Input>
@@ -271,7 +271,7 @@ const MsgSend = () => {
                                 Fee Denom(optional)
                             </FormLabel>
                             <Input
-                                placeholder="aechelon"
+                                placeholder="afury"
                                 type="text"
                                 onChange={(e) => setFeeDenom(e.target.value)}
                             />
@@ -333,7 +333,7 @@ const MsgSend = () => {
                         <FormControl id="destSendControl">
                             <FormLabel id="destSend">Destination</FormLabel>
                             <Input
-                                placeholder="0x.. or echelon1..."
+                                placeholder="0x.. or blackfury1..."
                                 type="text"
                                 onChange={(e) => setDest(e.target.value)}
                             />

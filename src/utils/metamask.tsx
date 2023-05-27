@@ -1,4 +1,4 @@
-import { ethToEchelon, echelonToEth } from 'echelon-address-converter';
+import { ethToBlackfury, blackfuryToEth } from 'blackfury-address-converter';
 import { fromHexString, signatureToPubkey } from '@hanchon/signature-to-pubkey';
 import { fireSuccess } from '../landing/alert';
 import { generatePublicKey } from './backend';
@@ -9,11 +9,11 @@ import {
     setMetamask,
     setPubKey,
     setWalletEth,
-    setWalletEchelon,
+    setWalletBlackfury,
     unsetProvider,
     unsetPubKey,
     unsetWalletEth,
-    unsetWalletEchelon,
+    unsetWalletBlackfury,
 } from './db';
 import { store } from './state';
 import { disconnectWallet, queryBalances } from './wallet';
@@ -75,11 +75,11 @@ export async function handleAccountsChanged(
         type: 'wallet',
         payload: {
             walletEth: accounts[0],
-            walletEchelon: ethToEchelon(accounts[0]),
+            walletBlackfury: ethToBlackfury(accounts[0]),
         },
     });
     setWalletEth(accounts[0]);
-    setWalletEchelon(ethToEchelon(accounts[0]));
+    setWalletBlackfury(ethToBlackfury(accounts[0]));
     if (account == getWalletEth()) {
         if (pubkeyDb !== null) {
             state.dispatch({ type: 'pubkey', payload: { pubkey: pubkeyDb } });
@@ -98,7 +98,7 @@ export async function handleAccountsChanged(
     setPubKey(pubkey);
     await queryBalances(state);
 
-    fireSuccess('Logged in with Metamask', 'You can now start using wallet.ech.network!');
+    fireSuccess('Logged in with Metamask', 'You can now start using wallet.fury.black!');
 }
 
 export async function signCosmosTransaction(wallet: string, data: any) {

@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/layout';
 import { useContext } from 'react';
 import CosmosCoins from '../src/assets/comoscoins';
 import ERC20Assets from '../src/assets/erc20Assets';
-import EchelonHeader from '../src/header/echelonheader';
+import BlackfuryHeader from '../src/header/blackfuryheader';
 import { Erc20Section } from '../src/sections/erc20';
 import Template from '../src/template/template';
 import { store } from '../src/utils/state';
@@ -13,7 +13,7 @@ const ERC20Page = () => {
         // <Template
         //     section="erc20"
         //     element={[
-        //         <EchelonHeader key="header"></EchelonHeader>,
+        //         <BlackfuryHeader key="header"></BlackfuryHeader>,
         //         <Box h="full" key="walletbox">
         //             <ERC20Assets key="erc20"></ERC20Assets>
         //         </Box>,

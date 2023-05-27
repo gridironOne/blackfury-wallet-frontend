@@ -3,24 +3,24 @@ import React from 'react';
 
 import { useContext, useEffect } from 'react';
 import { getAllERC20Balances } from './backend';
-import { echelonPubKey, getRewards } from './blockchain/account';
+import { blackfuryPubKey, getRewards } from './blockchain/account';
 import { getAllBalances } from './blockchain/balances';
 import {
     getProvider,
     getPubKey,
     getWalletEth,
-    getWalletEchelon,
+    getWalletBlackfury,
     unsetProvider,
     setPubKey,
     unsetPubKey,
     unsetWalletEth,
-    unsetWalletEchelon,
+    unsetWalletBlackfury,
 } from './db';
 import { BalanceCosmos, GlobalState, store, BalanceERC20Item } from './state';
 
 export function disconnectWallet(state: GlobalState) {
     unsetWalletEth();
-    unsetWalletEchelon();
+    unsetWalletBlackfury();
     unsetPubKey();
     unsetProvider();
     state.dispatch({ type: 'cleanup', payload: {} });
@@ -30,14 +30,14 @@ export function disconnectWallet(state: GlobalState) {
 export async function reconnectWallet(state: GlobalState) {
     const walletEth = getWalletEth();
     if (walletEth !== null) {
-        const walletEchelon = getWalletEchelon();
+        const walletBlackfury = getWalletBlackfury();
         const pubkey = getPubKey();
         const provider = getProvider();
         state.dispatch({
             type: 'wallet',
             payload: {
                 walletEth: walletEth,
-                walletEchelon: walletEchelon,
+                walletBlackfury: walletBlackfury,
             },
         });
         state.dispatch({ type: 'pubkey', payload: { pubkey } });
@@ -47,12 +47,12 @@ export async function reconnectWallet(state: GlobalState) {
 }
 
 export async function queryBalances(store: GlobalState) {
-    const wallet = getWalletEchelon();
+    const wallet = getWalletBlackfury();
     let balance: BalanceCosmos[] = [];
     var rewards;
     if (wallet !== null) {
         balance = await getAllBalances(wallet);
-        // var pubkey = await echelonPubKey(wallet);
+        // var pubkey = await blackfuryPubKey(wallet);
         rewards = await getRewards();
         console.log(rewards);
         // setPubKey(pubkey);

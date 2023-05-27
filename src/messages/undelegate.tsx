@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEchelon } from 'echelon-address-converter';
+import { ethToBlackfury } from 'blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -29,20 +29,20 @@ async function execute(
     feeDenom: string,
     feeGas: string
 ) {
-    if (dest.split('echelonvaloper1').length != 2) {
-        fireError('Undelegate Aechelon', 'Invalid destination!');
+    if (dest.split('blackfuryvaloper1').length != 2) {
+        fireError('Undelegate Ablackfury', 'Invalid destination!');
         return false;
     }
 
     let parsedAmount = Number(amount);
     if (parsedAmount === NaN) {
-        fireError('Undelegate Aechelon', 'Invalid amount!');
+        fireError('Undelegate Ablackfury', 'Invalid amount!');
         return false;
     }
 
     if (parsedAmount < 100000000000000) {
         fireError(
-            'Undelegate Aechelon',
+            'Undelegate Ablackfury',
             'Invalid amount, minimum value is 100000000000000!'
         );
         return false;
@@ -57,7 +57,7 @@ async function execute(
     }
 
     if (feeDenom == '') {
-        feeDenom = 'aechelon';
+        feeDenom = 'afury';
     }
 
     if (feeGas == '') {
@@ -78,7 +78,7 @@ async function execute(
     let res = await createTxMsgUndelegate(chain, sender, fee, memo, {
         validatorAddress: dest,
         amount: amount,
-        denom: 'aechelon',
+        denom: 'afury',
     });
 
     return signCosmosAndBroadcastWithMetamask(chain, sender, res);
@@ -101,14 +101,14 @@ const UndelegateAphotons = () => {
             border="1px"
             borderRadius={25}
         >
-            <Heading size="md">Undelegate Aechelon</Heading>
+            <Heading size="md">Undelegate Ablackfury</Heading>
             <Divider />
             <SimpleGrid columns={1} columnGap={3} rowGap={6} w="full">
                 <GridItem colSpan={[1, 2]}>
                     <FormControl id="destDelegateControl">
                         <FormLabel id="destDelegate">Destination</FormLabel>
                         <Input
-                            placeholder="echelonvaloper1t703ccll8shpkhwnvmtu5nzrvcaw52u8an2708"
+                            placeholder="blackfuryvaloper1t703ccll8shpkhwnvmtu5nzrvcaw52u8an2708"
                             type="text"
                             onChange={(e) => setDest(e.target.value)}
                         />
@@ -117,7 +117,7 @@ const UndelegateAphotons = () => {
                 <GridItem colSpan={[1, 2]}>
                     <FormControl id="amountDelegateControl">
                         <FormLabel id="amountDelegate">
-                            Amount (Aechelon)
+                            Amount (Ablackfury)
                         </FormLabel>
                         <Input
                             placeholder="1000000000000"
@@ -156,7 +156,7 @@ const UndelegateAphotons = () => {
                     <FormControl id="memoSendControl">
                         <FormLabel id="memoSend">Fee Denom(optional)</FormLabel>
                         <Input
-                            placeholder="aechelon"
+                            placeholder="afury"
                             type="text"
                             onChange={(e) => setFeeDenom(e.target.value)}
                         />

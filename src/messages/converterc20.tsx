@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEchelon } from 'echelon-address-converter';
+import { ethToBlackfury } from 'blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -21,7 +21,7 @@ import {
     callProposalRegisterErc20,
     callConvertErc20,
 } from '../utils/backend';
-import { getWalletEth, getWalletEchelon } from '../utils/db';
+import { getWalletEth, getWalletBlackfury } from '../utils/db';
 
 export async function executeConvertERC20(
     contract: string,
@@ -46,7 +46,7 @@ export async function executeConvertERC20(
         fireError('Convert ERC20', 'Invalid amount!');
         return false;
     }
-    const myWallet = getWalletEchelon();
+    const myWallet = getWalletBlackfury();
     if (myWallet === null) {
         fireError('Convert ERC20', 'Invalid wallet!');
         return false;

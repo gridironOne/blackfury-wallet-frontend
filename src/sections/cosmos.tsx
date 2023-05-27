@@ -16,15 +16,15 @@ function CosmosSubtitle() {
         <TitleH2
             content={
                 <>
-                    <Strong content={'Echelon Coins'} />
+                    <Strong content={'Blackfury Coins'} />
                     {' balances.'}
                     <br />
                     {'('}
-                    <Strong content={'Aechelon'} />
+                    <Strong content={'Ablackfury'} />
                     {', '}
                     <Strong content={'IBC'} />
                     {', '}
-                    <Strong content={"echelon' ERC20 coins"} />
+                    <Strong content={"blackfury' ERC20 coins"} />
                     {')'}
                 </>
             }
@@ -66,10 +66,10 @@ function CosmosGrid({ globalState }: { globalState: GlobalState }) {
                                     />,
                                 ]}
                                 avatar={
-                                    coin.denom == 'aechelon'
+                                    coin.denom == 'afury'
                                         ? useColorModeValue(
-                                              './echelon.gif',
-                                              './echelon.gif'
+                                              './blackfury.gif',
+                                              './blackfury.gif'
                                           )
                                         : useColorModeValue(
                                               './coins.png',
@@ -101,7 +101,7 @@ export const CosmosSection = () => {
     const globalState = useContext(store);
     return (
         <General
-            title="Your Echelon Coins"
+            title="Your Blackfury Coins"
             subtitle={[<CosmosSubtitle key="sub" />]}
             content={[<CosmosGrid key="grid" globalState={globalState} />]}
             icon={[<CosmosIconFooter key="footer" />]}

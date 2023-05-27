@@ -1,23 +1,23 @@
-import { echelonToEth } from 'echelon-address-converter';
+import { blackfuryToEth } from 'blackfury-address-converter';
 import { fireError, fireSuccess } from '../landing/alert';
-import { setKeplr, setPubKey, setWalletEth, setWalletEchelon } from './db';
+import { setKeplr, setPubKey, setWalletEth, setWalletBlackfury } from './db';
 import { reconnectWallet } from './wallet';
 
 const config = {
-    // RPC_URL: 'https://echelon-archive-testnet.api.bdnodes.net:26657',
-    // REST_URL: 'https://echelon-archive-testnet.api.bdnodes.net:1317',
+    // RPC_URL: 'https://blackfury-archive-testnet.api.bdnodes.net:26657',
+    // REST_URL: 'https://blackfury-archive-testnet.api.bdnodes.net:1317',
     RPC_URL: '89.233.104.101:26656',
-    REST_URL: 'https://api.ech.network',
+    REST_URL: 'https://api.fury.black',
 
-    EXPLORER_URL: 'https://explorer.ech.network/',
-    NETWORK_NAME: 'Echelon',
+    EXPLORER_URL: 'https://explorer.fury.black/',
+    NETWORK_NAME: 'Blackfury',
     NETWORK_TYPE: 'mainnet',
-    CHAIN_ID: 'echelon_3000-3',
-    CHAIN_NAME: 'Echelon Mainnet',
+    CHAIN_ID: 'highbury_710-3',
+    CHAIN_NAME: 'Blackfury Mainnet',
     COIN_DENOM: 'ECH',
-    COIN_MINIMAL_DENOM: 'aechelon',
+    COIN_MINIMAL_DENOM: 'afury',
     COIN_DECIMALS: 18,
-    PREFIX: 'echelon',
+    PREFIX: 'blackfury',
     COIN_TYPE: 60,
     GAS_PRICE_STEP_LOW: 0.05,
     GAS_PRICE_STEP_AVERAGE: 0.25,
@@ -106,16 +106,16 @@ export async function connectKeplr(state: any) {
     // }
 
     if (window.keplr) {
-        await window.keplr.enable('echelon_3000-3');
-        const offlineSigner = window.getOfflineSigner('echelon_3000-3');
+        await window.keplr.enable('highbury_710-3');
+        const offlineSigner = window.getOfflineSigner('highbury_710-3');
         fireSuccess(
             'Logged in with Keplr',
-            'You can now start using wallet.ech.network!'
+            'You can now start using wallet.fury.black!'
         );
         let wallets = await offlineSigner.getAccounts();
         setKeplr();
-        setWalletEchelon(wallets[0].address);
-        setWalletEth(echelonToEth(wallets[0].address));
+        setWalletBlackfury(wallets[0].address);
+        setWalletEth(blackfuryToEth(wallets[0].address));
         let pubkey = btoa(String.fromCharCode.apply(null, wallets[0].pubkey));
         setPubKey(pubkey);
         await reconnectWallet(state);

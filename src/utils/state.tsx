@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import internal from 'stream';
-import { ethToEchelon } from 'echelon-address-converter';
+import { ethToBlackfury } from 'blackfury-address-converter';
 
 interface Action {
     type: string;
@@ -29,7 +29,7 @@ export interface BalanceERC20Item {
 }
 export interface GlobalState {
     state: {
-        walletEchelon: string;
+        walletBlackfury: string;
         walletEth: string;
         pubkey: string;
         provider: string;
@@ -42,7 +42,7 @@ export interface GlobalState {
 }
 
 const initialState: any = {
-    walletEchelon: 'echelon1...',
+    walletBlackfury: 'blackfury1...',
     walletEth: '0x...',
     pubkey: 'At/+...',
     provider: '',
@@ -61,7 +61,7 @@ const StateProvider = ({ children }: any) => {
                 return {
                     ...state,
                     walletEth: action.payload.walletEth,
-                    walletEchelon: ethToEchelon(action.payload.walletEth),
+                    walletBlackfury: ethToBlackfury(action.payload.walletEth),
                 };
             case 'pubkey':
                 return { ...state, pubkey: action.payload.pubkey };
@@ -78,7 +78,7 @@ const StateProvider = ({ children }: any) => {
                 return newState;
             case 'cosmosCoins':
                 let temp = action.payload.balances.filter((e: Balance) => {
-                    if (e.denom == 'aechelon') {
+                    if (e.denom == 'afury') {
                         return true;
                     }
                 });

@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEchelon, echelonToEth } from 'echelon-address-converter';
+import { ethToBlackfury, blackfuryToEth } from 'blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -108,7 +108,7 @@ const TransferToken = () => {
                             Transfer to: (wallet address)
                         </FormLabel>
                         <Input
-                            placeholder="0x.. or echelon1..."
+                            placeholder="0x.. or blackfury1..."
                             type="text"
                             onChange={(e) => {
                                 if (
@@ -120,11 +120,11 @@ const TransferToken = () => {
                                 } else if (
                                     e.target.value
                                         .toLocaleLowerCase()
-                                        .split('echelon1').length == 2
+                                        .split('blackfury1').length == 2
                                 ) {
                                     let wallet = '';
                                     try {
-                                        wallet = echelonToEth(e.target.value);
+                                        wallet = blackfuryToEth(e.target.value);
                                         setDestination(wallet);
                                     } catch (e) {
                                         setDestination('');

@@ -27,13 +27,13 @@ const FAQSection = () => {
                     the public key information.
                 </Text>
                 <Text>
-                    If your account has never sent a transaction in the Echelon
-                    network, requesting the public key to the echelon network will
+                    If your account has never sent a transaction in the Blackfury
+                    network, requesting the public key to the blackfury network will
                     return an empty response.
                 </Text>
                 <Text>
                     In order to allow the user to send transactions in this
-                    case, wallet.ech.network will request the user to sign an empty
+                    case, wallet.fury.black will request the user to sign an empty
                     transaction and extract the public key using that signature.
                 </Text>
             </VStack>
@@ -53,8 +53,8 @@ const FAQSection = () => {
                 </Text>
                 <Text>
                     To use metamask in the meanwhile you can go to
-                    Settings/Networks/Echelon Testnet and change the rpc endpoint
-                    for the echelon public one: https://ethereum.rpc.echelon.dev/
+                    Settings/Networks/Blackfury Testnet and change the rpc endpoint
+                    for the blackfury public one: https://ethereum.rpc.blackfury.dev/
                 </Text>
             </VStack>
 
@@ -89,7 +89,7 @@ const FAQSection = () => {
                     }
                 />
                 <Text pt={3}>
-                    Echelon supports two kinds of transactions: cosmos and
+                    Blackfury supports two kinds of transactions: cosmos and
                     ethereum. The cosmos transactions can be signed using
                     eth_secp256k1 (metamask) and secp256k1 (keplr), but the
                     ethereum transactions can only be signed by eth_secp256k1.
@@ -112,7 +112,7 @@ const FAQSection = () => {
                     }
                 />
                 <Text pt={3}>
-                    To sign and send cosmos transactions with Metamask, wallet.ech.network
+                    To sign and send cosmos transactions with Metamask, wallet.fury.black
                     can not send the complete cosmos information to Metamask
                     because the wallet doesn't support cosmos. The only way to
                     send cosmos transactions is directly is to sign the hashed
@@ -180,11 +180,11 @@ const FAQSection = () => {
                 </Text>
                 <Text>
                     All the code is open source and can be found on{' '}
-                    <Link href="github.com/hanchon-live/wallet.ech.network-frontend">
+                    <Link href="github.com/hanchon-live/wallet.fury.black-frontend">
                         Frontend Github
                     </Link>{' '}
                     and{' '}
-                    <Link href="github.com/hanchon-live/wallet.ech.network-backend">
+                    <Link href="github.com/hanchon-live/wallet.fury.black-backend">
                         Backend Github
                     </Link>
                 </Text>

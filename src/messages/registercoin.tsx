@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToEchelon } from 'echelon-address-converter';
+import { ethToBlackfury } from 'blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -137,7 +137,7 @@ const RegisterCoin = () => {
                             Denomination description
                         </FormLabel>
                         <Input
-                            placeholder="this is the base coin for echelon"
+                            placeholder="this is the base coin for blackfury"
                             type="text"
                             onChange={(e) => setDescription(e.target.value)}
                         />

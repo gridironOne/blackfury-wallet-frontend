@@ -1,13 +1,13 @@
 import { REACT_APP_NODE_URL } from '../contants';
 import { balancesEndpoint } from '@tharsis/provider';
-import { ethToEchelon } from 'echelon-address-converter';
+import { ethToBlackfury } from 'blackfury-address-converter';
 
 export async function getAllBalances(address: string) {
     if (address === null) {
         return { balances: [] };
     }
     if (address.split('0x').length == 2) {
-        address = ethToEchelon(address);
+        address = ethToBlackfury(address);
     }
     let balance = await fetch(
         `${REACT_APP_NODE_URL}${balancesEndpoint}${address}`
