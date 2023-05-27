@@ -11,7 +11,7 @@ import {
     HStack,
 } from '@chakra-ui/layout';
 import { Divider, Select } from '@chakra-ui/react';
-import { ethToBlackfury } from 'blackfury-address-converter';
+import { ethToBlackfury } from '@fanfury/blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -29,7 +29,7 @@ import {
     createTxRawEIP712,
     signatureToWeb3Extension,
 } from '@tharsis/transactions';
-import { blackfuryToEth } from 'blackfury-address-converter';
+import { blackfuryToEth } from '@fanfury/blackfury-address-converter';
 import { getAccount } from '../utils/blockchain/account';
 import { BaseFee, chain } from '../utils/blockchain/chain';
 import {

@@ -42,7 +42,7 @@ export default function CallToActionWithAnnotation() {
                                 fontSize={{ base: 'lg', sm: '4xl', md: '6xl' }}
                                 fontWeight={600}
                             >
-                                Your all in one ECH wallet
+                                Your all in one FURY wallet
                             </Text>
                         </Heading>
 

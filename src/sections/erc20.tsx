@@ -20,7 +20,7 @@ function ERC20Subtitle() {
                     <Strong content={'ERC20'} />
                     {' balances.'}
                     <br />
-                    {'(All your ERC20 tokens registered on Blackfury.me)'}
+                    {'(All your ERC20 tokens registered on fury.black)'}
                     <br />
                     {'Read the '}
                     <Link href="/faq">FAQ</Link>

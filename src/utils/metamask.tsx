@@ -1,4 +1,4 @@
-import { ethToBlackfury, blackfuryToEth } from 'blackfury-address-converter';
+import { ethToBlackfury, blackfuryToEth } from '@fanfury/blackfury-address-converter';
 import { fromHexString, signatureToPubkey } from '@hanchon/signature-to-pubkey';
 import { fireSuccess } from '../landing/alert';
 import { generatePublicKey } from './backend';

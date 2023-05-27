@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToBlackfury } from 'blackfury-address-converter';
+import { ethToBlackfury } from '@fanfury/blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -28,7 +28,7 @@ import {
     createTxRawEIP712,
     signatureToWeb3Extension,
 } from '@tharsis/transactions';
-import { blackfuryToEth } from 'blackfury-address-converter';
+import { blackfuryToEth } from '@fanfury/blackfury-address-converter';
 import { getAccount } from '../utils/blockchain/account';
 import { BaseFee, chain } from '../utils/blockchain/chain';
 import {
@@ -214,7 +214,7 @@ const MsgSend = () => {
                         <FormControl id="destSendControl">
                             <FormLabel id="destSend">Destination</FormLabel>
                             <Input
-                                placeholder="0x.. or blackfury1..."
+                                placeholder="0x.. or black1..."
                                 type="text"
                                 onChange={(e) => setDest(e.target.value)}
                             />
@@ -333,7 +333,7 @@ const MsgSend = () => {
                         <FormControl id="destSendControl">
                             <FormLabel id="destSend">Destination</FormLabel>
                             <Input
-                                placeholder="0x.. or blackfury1..."
+                                placeholder="0x.. or black1..."
                                 type="text"
                                 onChange={(e) => setDest(e.target.value)}
                             />

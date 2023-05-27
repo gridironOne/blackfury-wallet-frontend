@@ -1,4 +1,4 @@
-import { ethToBlackfury, blackfuryToEth } from 'blackfury-address-converter';
+import { ethToBlackfury, blackfuryToEth } from '@fanfury/blackfury-address-converter';
 import { GiConsoleController } from 'react-icons/gi';
 import { fireError, fireSuccess } from '../landing/alert';
 import { REACT_APP_BACKEND_URL, REACT_APP_NODE_URL } from './contants';
@@ -57,7 +57,7 @@ export async function getAllERC20Balances(address: string) {
     if (address === null) {
         return { balances: [] };
     }
-    if (address.split('blackfury1').length == 2) {
+    if (address.split('black1').length == 2) {
         address = blackfuryToEth(address);
     }
     const pubresp = await fetch(
@@ -116,10 +116,10 @@ export async function createERC20Transfer(
     gas: string,
     gasPrice: string
 ) {
-    if (sender.split('blackfury1').length == 2) {
+    if (sender.split('black1').length == 2) {
         sender = blackfuryToEth(sender);
     }
-    if (destination.split('blackfury1').length == 2) {
+    if (destination.split('black1').length == 2) {
         destination = blackfuryToEth(destination);
     }
     const pubresp = await fetch(

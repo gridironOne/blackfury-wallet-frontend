@@ -1,4 +1,4 @@
-import { blackfuryToEth } from 'blackfury-address-converter';
+import { blackfuryToEth } from '@fanfury/blackfury-address-converter';
 import { fireError, fireSuccess } from '../landing/alert';
 import { setKeplr, setPubKey, setWalletEth, setWalletBlackfury } from './db';
 import { reconnectWallet } from './wallet';
@@ -12,9 +12,9 @@ const config = {
     EXPLORER_URL: 'https://explorer.fury.black/',
     NETWORK_NAME: 'Blackfury',
     NETWORK_TYPE: 'mainnet',
-    CHAIN_ID: 'highbury_710-3',
+    CHAIN_ID: 'clockend_4200-3',
     CHAIN_NAME: 'Blackfury Mainnet',
-    COIN_DENOM: 'ECH',
+    COIN_DENOM: 'FURY',
     COIN_MINIMAL_DENOM: 'afury',
     COIN_DECIMALS: 18,
     PREFIX: 'blackfury',
@@ -106,8 +106,8 @@ export async function connectKeplr(state: any) {
     // }
 
     if (window.keplr) {
-        await window.keplr.enable('highbury_710-3');
-        const offlineSigner = window.getOfflineSigner('highbury_710-3');
+        await window.keplr.enable('clockend_4200-3');
+        const offlineSigner = window.getOfflineSigner('clockend_4200-3');
         fireSuccess(
             'Logged in with Keplr',
             'You can now start using wallet.fury.black!'

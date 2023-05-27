@@ -52,7 +52,7 @@ function ValidatorGrid() {
 
             <p>You may find an Blackfury validator address (blackfuryvaloper1...) to stake aka delegate to from <a href="https://ping.pub/blackfury/staking" target="_blank">Ping.pub</a>
             <br />
-            1000000000000000000 afury = 1 ECH
+            1000000000000000000 afury = 1 FURY
             </p><br />
 
             <SimpleGrid

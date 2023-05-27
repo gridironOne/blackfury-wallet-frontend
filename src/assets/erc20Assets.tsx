@@ -31,7 +31,7 @@ const ERC20Assets = () => {
                     ERC20 tokens
                 </Heading>
                 <Text py={2} textAlign="center">
-                    All the registered ERC20 tokens on Blackfury.me
+                    All the registered ERC20 tokens on fury.black
                 </Text>
             </Box>
             <SimpleGrid
@@ -70,7 +70,7 @@ const ERC20Assets = () => {
     //                 ERC20 tokens
     //             </Heading>
     //             <Text py={2} textAlign="center">
-    //                 All the registered ERC20 tokens on Blackfury.me
+    //                 All the registered ERC20 tokens on fury.black
     //             </Text>
     //         </Box>
     //         <SimpleGrid

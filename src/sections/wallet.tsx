@@ -83,10 +83,10 @@ function WalletGrid() {
         },
         {
             name: 'Balance',
-            role: 'Current Blackfury (ECH) coin balance',
+            role: 'Current Blackfury (FURY) coin balance',
             content: [
                 <TextSpan
-                    content={`≈${(globalState.state.aphoton/1e18).toString()} ECH`}
+                    content={`≈${(globalState.state.aphoton/1e18).toString()} FURY`}
                     key="balancetext"
                 />,
                 <TextSpan
@@ -98,10 +98,10 @@ function WalletGrid() {
         },
         {
             name: 'Rewards',
-            role: 'Current Blackfury (ECH) coin rewards',
+            role: 'Current Blackfury (FURY) coin rewards',
             content: [
                 <TextSpan
-                    content={`≈${(globalState.state.rewards/1e18).toString()} ECH`}
+                    content={`≈${(globalState.state.rewards/1e18).toString()} FURY`}
                     key="rewardstext"
                 />,
             //     <TextSpan

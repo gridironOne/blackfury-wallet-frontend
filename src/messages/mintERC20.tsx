@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToBlackfury, blackfuryToEth } from 'blackfury-address-converter';
+import { ethToBlackfury, blackfuryToEth } from '@fanfury/blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -41,7 +41,7 @@ export async function executeMintERC20(
         return false;
     }
 
-    if (destination.split('blackfury1').length == 2) {
+    if (destination.split('black1').length == 2) {
         destination = blackfuryToEth(destination);
     } else if (destination.split('0x').length != 2) {
         fireError('Mint ERC20', 'Invalid Contract!');
@@ -107,7 +107,7 @@ const MintERC20 = () => {
                     <FormControl id="destSendControl">
                         <FormLabel id="destSend">Destination address</FormLabel>
                         <Input
-                            placeholder="0x../blackfury1..."
+                            placeholder="0x../black1..."
                             type="text"
                             onChange={(e) => setDestination(e.target.value)}
                         />

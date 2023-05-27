@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import internal from 'stream';
-import { ethToBlackfury } from 'blackfury-address-converter';
+import { ethToBlackfury } from '@fanfury/blackfury-address-converter';
 
 interface Action {
     type: string;
@@ -42,7 +42,7 @@ export interface GlobalState {
 }
 
 const initialState: any = {
-    walletBlackfury: 'blackfury1...',
+    walletBlackfury: 'black1...',
     walletEth: '0x...',
     pubkey: 'At/+...',
     provider: '',

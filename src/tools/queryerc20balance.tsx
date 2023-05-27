@@ -10,7 +10,7 @@ import {
     VStack,
 } from '@chakra-ui/layout';
 import { Divider } from '@chakra-ui/react';
-import { ethToBlackfury, blackfuryToEth } from 'blackfury-address-converter';
+import { ethToBlackfury, blackfuryToEth } from '@fanfury/blackfury-address-converter';
 import { useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import { fireError, fireSuccess } from '../landing/alert';
@@ -74,7 +74,7 @@ const QueryERC20Balance = () => {
                     <FormControl id="destSendControl2">
                         <FormLabel id="destSend2">Wallet Address</FormLabel>
                         <Input
-                            placeholder="0x.. or blackfury1..."
+                            placeholder="0x.. or black1..."
                             type="text"
                             onChange={(e) => {
                                 if (
@@ -86,7 +86,7 @@ const QueryERC20Balance = () => {
                                 } else if (
                                     e.target.value
                                         .toLocaleLowerCase()
-                                        .split('blackfury1').length == 2
+                                        .split('black1').length == 2
                                 ) {
                                     setWallet(blackfuryToEth(e.target.value));
                                 } else {

@@ -101,7 +101,7 @@ export const CosmosSection = () => {
     const globalState = useContext(store);
     return (
         <General
-            title="Your Blackfury Coins"
+            title="Your Fury Coins"
             subtitle={[<CosmosSubtitle key="sub" />]}
             content={[<CosmosGrid key="grid" globalState={globalState} />]}
             icon={[<CosmosIconFooter key="footer" />]}

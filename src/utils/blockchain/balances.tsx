@@ -1,6 +1,6 @@
 import { REACT_APP_NODE_URL } from '../contants';
 import { balancesEndpoint } from '@tharsis/provider';
-import { ethToBlackfury } from 'blackfury-address-converter';
+import { ethToBlackfury } from '@fanfury/blackfury-address-converter';
 
 export async function getAllBalances(address: string) {
     if (address === null) {

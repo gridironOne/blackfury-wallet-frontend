@@ -278,7 +278,7 @@ import {
     SignTypedDataVersion,
     TypedDataUtils,
 } from '@metamask/eth-sig-util';
-import { ethToBlackfury } from 'blackfury-address-converter';
+import { ethToBlackfury } from '@fanfury/blackfury-address-converter';
 async function test2() {
     console.log(ethToBlackfury('0x5A7284d1f3A1BeFbB69832452C7624fC12143D33'));
     let a = signTypedData({
